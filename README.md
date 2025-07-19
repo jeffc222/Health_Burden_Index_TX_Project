@@ -7,7 +7,8 @@ This project analyzes city-level health burdens across Texas using the **CDC PLA
 
 The goal is to identify cities with the highest health burden and explore patterns that can inform public health priorities and interventions.
 
-> ⚠️ **Note**: The full dataset exceeds GitHub’s 25MB upload limit and is therefore not included in this repository. You can access it directly from the [CDC Data Portal](https://data.cdc.gov/d/eav7-hnsx).
+> ⚠️ **Note**: The full dataset exceeds GitHub’s 25MB upload limit and is therefore not included in this repository. You can access it directly here (https://data.cdc.gov/d/eav7-hnsx). 
+
 
 ## 🧠 Project Objective
 - Calculate a Health Burden Index for each city in Texas
