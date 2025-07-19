@@ -9,15 +9,50 @@ The goal is to identify cities with the highest health burden and explore patter
 
 > ⚠️ **Note**: The full dataset exceeds GitHub’s 25MB upload limit and is therefore not included in this repository. You can access it directly from the [CDC Data Portal](https://data.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-Place-Data-202/eav7-hnsx/about_data).
 
-# Objective
-To identify and compare cities in Texas based on a calculated health burden score. This allows:
-* Insight into local health disparities
-* Visual exploration of geographic health risk clusters
-* Foundation for combining with future trend analysis (Project 2) and model validation (Project 3)
+## 🧠 Project Objective
+- Calculate a Health Burden Index for each city in Texas
+- Visualize cities with high health burdens
+- Provide insights and recommendations for public health planning
+- Lay the foundation for future projects (statewide and national trend comparisons)
 
-# Tools and Technologies
-* SQL (BigQuery): Data cleaning, filtering, and calculation of Health Burden Index
-* Google Sheets: Lookup, formatting, and simple visualization
-* Tableau Public: Geospatial mapping and dashboard visualization
-* GitHub: Documentation and project portfolio
+---
+
+## ⚙️ Methodology
+
+### 1. Data Cleaning & Filtering (SQL)
+- Source: CDC PLACES Local 2024 data (2022)
+- Selected Measures:
+  - `OBESITY`: Obesity among adults
+  - `DIABETES`: Diagnosed diabetes among adults
+  - `CSMOKING`: Current smoking among adults
+  - `DEPRESSION`: Depression among adults
+- Filtered to Texas cities with population > 500
+- Created a Health Burden Index = average of the 4 indicators
+
+### 2. Data Formatting & Exploration (Google Sheets)
+- Added population estimates using VLOOKUP
+- Labeled cities by health burden level (High / Moderate / Low)
+- Applied conditional formatting for quick visual scanning
+
+### 3. Visualization (Tableau)
+- Mapped all cities in Texas with geographic coordinates
+- Applied color gradients by Health Burden Index
+- Highlighted high-burden cities
+- Annotated cities using labels and tooltips
+
+---
+
+## 📊 Key Insights
+
+- Cities with the highest HBI are often smaller or mid-sized with limited population.
+- Depression and obesity were consistent contributors in most high-burden cities.
+- Urban centers generally had lower burden, but not always — highlighting disparities.
+
+---
+
+## ✅ Recommendations
+
+- Prioritize health education and intervention efforts in identified **high-burden cities**.
+- Support mental health infrastructure in regions with elevated depression rates.
+- Encourage community-level data use to support targeted policy and funding.
 
