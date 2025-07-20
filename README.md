@@ -63,7 +63,7 @@ A visualization was created in Tableau to highlight cities with high health burd
 ## Repository Contents
 * README.md – Project overview, objectives, technical process, insights, and recommendations.
 * data/ – Information about the dataset and external link to the full CDC PLACES dataset.
-*   dataset_link.md – Link to the original CDC PLACES dataset (2024 release).
+  * dataset_link.md – Link to the original CDC PLACES dataset (2024 release).
 * work/ – Project work files, including SQL queries and spreadsheet.
   * sql_queries.sql – All SQL queries used for data filtering, cleaning, and analysis.
   * HBI_places.xlsx – Cleaned and processed spreadsheet with final calculations.
@@ -74,6 +74,6 @@ A visualization was created in Tableau to highlight cities with high health burd
   * txlow.png - Tableau map visualization of low-burden Texas cities.
 
 ## Disclaimer
-This project is for educational and portfolio purposes only. The dataset used in this analysis is publicly available through the CDC's PLACES: Local Data for Better Health initiative (2024 release). All data belongs to the original source.
+This project is for educational and portfolio purposes only. The dataset used in this analysis is publicly available through the [**CDC PLACES: Local Data for Better Health 2024**](data). All data belongs to the original source.
 
 
