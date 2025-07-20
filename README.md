@@ -11,7 +11,7 @@ The goal is to identify cities with the highest health burden and explore patter
 * Highlight high-burden areas with clear, map-based visualizations
 
 ## Dataset Structure
-The final dataset used in this project was derived from the **CDC PLACES Local 2024 dataset** and enriched with population data from the same source. It includes selected health indicators, calculated scores, and population metrics for cities in Texas.
+The final dataset was derived from two tables within the same dataset file from the **CDC PLACES Local 2024 dataset**. One table contained health indicators (e.g. **obesity**, **diabetes**, **smoking**, and **depression**) and their values, while the other provided population counts. Both tables were linked using a common identifier, **LocationId**, to create a unified dataset for analysis. 
 
 
 
