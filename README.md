@@ -13,10 +13,26 @@ The goal is to identify cities with the highest health burden and explore patter
 ## Dataset Structure
 The final dataset was derived from two tables within the same dataset file from the **CDC PLACES Local 2024 dataset**. One table contained health indicators (e.g. **obesity**, **diabetes**, **smoking**, and **depression**) and their values, while the other provided population counts. Both tables were linked using a common identifier, **LocationId**, to create a unified dataset for analysis. 
 
-![places](places.png)
+![places](images/places.png)
 
 ## Technical Process
-* 
+The project followed these key steps:
+1. **Data Extraction**  
+   - Retrieved 2024 CDC PLACES Local data via BigQuery.
+   - Filtered for 2022 data for Texas cities only, excluding measures based on 2021 BRFSS data.
+2. **Data Cleaning & Preparation**  
+   - Removed rows with missing values for selected indicators.
+   - Used CTEs to pivot and reshape the data.
+   - Calculated a Health Burden Index based on the average prevalence of obesity, diabetes, smoking, and depression.
+   - Joined in total population estimates via VLOOKUP from a secondary table.
+3. **Google Sheets Processing**  
+   - Applied conditional formatting to flag high, moderate, and low burden cities.
+   - Computed national averages and flagged cities above/below benchmarks.
+   - Filtered out cities with a population below 500.
+4. **Visualization in Tableau**  
+   - Created a choropleth-style map to visualize Health Burden Index across cities.
+   - Emphasized cities labeled "High" based on threshold logic (>=30).
+   - Labels and tooltip customization applied for clarity.
 
 
 ## Key Insights
@@ -28,6 +44,7 @@ The final dataset was derived from two tables within the same dataset file from 
 
 
 ## Dashboard
+A visualization was created in Tableau to highlight cities with high health burden scores.
 
 
 
