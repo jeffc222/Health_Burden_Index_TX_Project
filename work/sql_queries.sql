@@ -1,3 +1,6 @@
+/* Query 1: Build Health Burden Index */
+/* Description: Combines OBESITY, DIABETES, CSMOKING, and DEPRESSION into an average index */
+
 WITH filtered_indicators AS (
   SELECT
     StateAbbr,
