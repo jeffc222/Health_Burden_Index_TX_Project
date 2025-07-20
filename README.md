@@ -12,7 +12,7 @@ The goal is to identify cities with the highest health burden and explore patter
 
 ## Dataset Structure
 The final dataset was derived from two tables within the same dataset file from the **CDC PLACES Local 2024 dataset**. One table contained health indicators (e.g. **obesity**, **diabetes**, **smoking**, and **depression**) and their values, while the other provided population counts. Both tables were linked using a common identifier, **LocationId**, to create a unified dataset for analysis. 
-![place](place.png)
+![places](places.png)
 
 ---
 
