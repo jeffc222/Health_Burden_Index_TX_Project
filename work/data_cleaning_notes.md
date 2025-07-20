@@ -47,7 +47,7 @@ Conditional formatting:
 * Highlighted values above national averages
 
 ## 6. Exported Clean Dataset
-Filtered final table to only include Texas cities with population ≥ 500.
+Filtered final table to only include Texas cities with population > 500.
 
 Exported to .xlsx and used that for Tableau mapping.
 
