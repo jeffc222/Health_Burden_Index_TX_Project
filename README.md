@@ -19,21 +19,21 @@ The final dataset was derived from two tables within the same dataset file from 
 The project followed these key steps:
 1. **Data Extraction**  
    - Retrieved 2024 CDC PLACES Local data via BigQuery.
-   - Filtered for 2022 data for Texas cities only, excluding measures based on 2021 BRFSS data.
+   - Selected relevant columns such as **MeasureId**, **Data_Value**, **LocationName**, **LocationId**, and **Geolocation**.
+   - Focused on four prevalent health indicators: **obesity**, **diabetes**, **smoking**, and **depression**, all based on 2022 BRFSS data.  
 2. **Data Cleaning & Preparation**  
    - Removed rows with missing values for selected indicators.
    - Used CTEs to pivot and reshape the data.
-   - Calculated a Health Burden Index based on the average prevalence of obesity, diabetes, smoking, and depression.
+   - Calculated a Health Burden Index based on the average from the crude prevalence values of obesity, diabetes, smoking, and depression.
    - Joined in total population estimates via VLOOKUP from a secondary table.
 3. **Google Sheets Processing**  
    - Applied conditional formatting to flag high, moderate, and low burden cities.
-   - Computed national averages and flagged cities above/below benchmarks.
-   - Filtered out cities with a population below 500.
+   - Computed national averages via BigQuery and colored cities above/below benchmarks.
+   - Filtered for only Texas cities with a population above 500.
 4. **Visualization in Tableau**  
    - Created a choropleth-style map to visualize Health Burden Index across cities.
    - Emphasized cities labeled "High" based on threshold logic (>=30).
    - Labels and tooltip customization applied for clarity.
-
 
 ## Key Insights
 
