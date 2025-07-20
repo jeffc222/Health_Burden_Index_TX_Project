@@ -45,6 +45,8 @@ The project followed these key steps:
 
 ## Dashboard
 A visualization was created in Tableau to highlight cities with high health burden scores.
+![hbi](images/hbi.png)
+
 
 
 
