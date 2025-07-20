@@ -54,6 +54,7 @@ A visualization was created in Tableau to highlight cities with high health burd
 [Interactive Texas Health Burden Index](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ![txhigh](images/txhigh.png)
+![txlow](images/twlow.png)
 
 ## Repository Contents
 
