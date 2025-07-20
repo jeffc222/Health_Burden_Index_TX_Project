@@ -10,7 +10,9 @@ The goal is to identify cities with the highest health burden and explore patter
 * Provide insights and recommendations for public health planning
 * Highlight high-burden areas with clear, map-based visualizations
 
-## 
+## Dataset Structure
+The final dataset used in this project was derived from the **CDC PLACES Local 2024 dataset** and enriched with population data from the same source. It includes selected health indicators, calculated scores, and population metrics for cities in Texas.
+
 
 
 ---
