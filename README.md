@@ -44,11 +44,10 @@ The project followed these key steps:
 
 
 ## Dashboard
-A visualization was created in Tableau to highlight cities with high health burden scores.
-![hbi](images/hbi.png)
+A visualization was created in Tableau to highlight cities with high health burden scores. Link attached is to an interactive Texas map for high, moderate, and low Health Burden Index.
+[Interactive Texas Health Burden Index](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-
-
+![txhigh](images/txhigh.png)
 
 ## Repository Contents
 
