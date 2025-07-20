@@ -7,7 +7,9 @@
 
 **Year**: 2022
 
-**Used only rows with Data_Value_Type** = 'Crude Prevalence'
+**Rows**: 2.27 M
+
+**Columns**: 22
 
 ## 2. Initial Filtering via SQL
 Selected 4 indicators for the Health Burden Index:
@@ -19,6 +21,7 @@ Selected 4 indicators for the Health Burden Index:
 Filtered for:
 * Only 2022 data
 * Only rows where Data_Value IS NOT NULL
+* Data_Value_Type = 'Crude Prevalence'
 
 ## 3. Data Pivot and Index Creation
 Used CASE WHEN statements in SQL to pivot the selected indicators.
@@ -35,7 +38,7 @@ Extracted a separate table with TotalPopulation by city.
 
 Used VLOOKUP in Google Sheets to join population data into the HBI table.
 
-Filtered out cities with population < 500 to remove extremely small rural areas.
+Filtered for cities with population > 500 to remove extremely small rural areas.
 
 ## 5. Formatting in Google Sheets
 Ensured consistent number formatting (1–2 decimal places).
