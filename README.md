@@ -21,15 +21,6 @@ The goal is to identify cities with the highest health burden and explore patter
 
 ---
 
-## ⚙️ Methodology
-
-### 1. Data Cleaning & Filtering (SQL)
-- Source: CDC PLACES Local 2024 data (2022)
-- Selected Measures:
-  - `OBESITY`: Obesity among adults
-  - `DIABETES`: Diagnosed diabetes among adults
-  - `CSMOKING`: Current smoking among adults
-  - `DEPRESSION`: Depression among adults
 - Filtered to Texas cities with population > 500
 - Created a Health Burden Index = average of the 4 indicators
 
