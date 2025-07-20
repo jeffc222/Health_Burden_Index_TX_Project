@@ -43,30 +43,37 @@ The project followed these key steps:
    * **Smoking**: National Avg = 16.61%, City Range = 20.7%–26.1%
    * **Depression**: National Avg = 23.19%, Three cities—South Point (23.10%), Gregory (23.10%), and Carrizo Springs (22.90%)—fell just **below** the threshold
 * All nine cities had populations **under 6,500**, with **seven** located in **South Texas**, highlighting **regional and rural disparities** in chronic health burden.
-* In contrast, Texas cities with the **lowest Health Burden Index** were concentrated in major urban areas such as Austin, Dallas-Fort Worth, San Antonio, and Houson, suggesting goegraphic and socioeconomic disparities. 
+* In contrast, Texas cities with the **lowest Health Burden Index** were concentrated in major urban areas such as **Austin, Dallas-Fort Worth, San Antonio**, and **Houston**, suggesting goegraphic and socioeconomic disparities. 
 
 ## Recommendations
-*
-
+* **Targeted Local Interventions**: Focus public health resources on rural South Texas communities where chronic condition rates consistently exceed national averages.
+* **Culturally Tailored Health Campaigns**: Develop Spanish-language or bilingual educational initiatives addressing obesity, diabetes, and smoking prevention in predominantly Hispanic regions.
+* **Mobile Health Services**: Deploy mobile clinics or community health vans to improve access to screening, primary care, and mental health services in smaller towns with limited infrastructure.
+* **School and Community-Based Programs**: Launch early-intervention programs targeting nutrition, physical activity, and mental health support in schools and community centers.
+* **Collaborate with Local Stakeholders**: Partner with faith organizations, local businesses, and public schools to amplify messaging and build trust within high-burden communities.
+* **Prioritize Behavioral Health Access**: While depression rates were slightly below national averages in some cities, the high combined burden justifies investment in integrated care models that treat both physical and mental health conditions together.
 
 ## Dashboard
 A visualization was created in Tableau to highlight cities with high health burden scores. Link attached is to an interactive Texas map for high, moderate, and low Health Burden Index.
 [Interactive Texas Health Burden Index](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ![txhigh](images/txhigh.png)
-![txlow](images/twlow.png)
+![txlow](images/txlow.png)
 
 ## Repository Contents
-
-
+* README.md – Project overview, objectives, technical process, insights, and recommendations.
+* data/ – Information about the dataset and external link to the full CDC PLACES dataset.
+*   dataset_link.md – Link to the original CDC PLACES dataset (2024 release).
+* work/ – Project work files, including SQL queries and spreadsheet.
+  * sql_queries.sql – All SQL queries used for data filtering, cleaning, and analysis.
+  * HBI_places.xlsx – Cleaned and processed spreadsheet with final calculations.
+  * data_cleaning_notes.md – Step-by-step explanation of data cleaning and transformation steps.
+* images/ – Visual outputs and dataset schema references.
+  * places.png - Table schema and dataset structure diagram.
+  * txhigh.png - Tableau map visualization of high-burden Texas cities.
+  * txlow.png - Tableau map visualization of low-burden Texas cities.
 
 ## Disclaimer
+This project is for educational and portfolio purposes only. The dataset used in this analysis is publicly available through the CDC's PLACES: Local Data for Better Health initiative (2024 release). All data belongs to the original source.
 
-
-
-## ✅ Recommendations
-
-- Prioritize health education and intervention efforts in identified **high-burden cities**.
-- Support mental health infrastructure in regions with elevated depression rates.
-- Encourage community-level data use to support targeted policy and funding.
 
