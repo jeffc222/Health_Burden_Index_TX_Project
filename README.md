@@ -20,7 +20,7 @@ The project followed these key steps:
 1. **Data Extraction**  
    * Retrieved 2024 CDC PLACES Local data via BigQuery.
    * Selected relevant columns such as **MeasureId**, **Data_Value**, **LocationName**, **LocationId**, and **Geolocation**.
-   * Focused on four prevalent health indicators: **obesity**, **diabetes**, **smoking**, and **depression**, all based on 2022 BRFSS data.  
+   * Focused on four prevalent health indicators: **obesity**, **diabetes**, **smoking**, and **depression**, all based on the 2022 BRFSS data.  
 2. **Data Cleaning & Preparation**  
    * Removed rows with missing values for selected indicators.
    * Used CTEs to pivot and reshape the data.
@@ -54,7 +54,7 @@ The project followed these key steps:
 * **Prioritize Behavioral Health Access**: While depression rates were slightly below national averages in some cities, the high combined burden justifies investment in integrated care models that treat both physical and mental health conditions together.
 
 ## Dashboard
-A visualization was created in Tableau to highlight cities with high health burden scores. Link attached is to an interactive Texas map for high, moderate, and low Health Burden Index.
+A visualization was created in Tableau to highlight cities with high health burden scores. Link attached is an interactive Texas map for high, moderate, and low Health Burden Index.
 [Interactive Texas Health Burden Index](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ![txhigh](images/txhigh.png)
