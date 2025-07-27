@@ -34,8 +34,10 @@ The project followed these key steps:
    * Created a choropleth-style map to visualize Health Burden Index across cities.
    * Emphasized cities labeled "High" based on threshold logic (>=30).
    * Labels and tooltip customization applied for clarity.
+   
+For a more detailed process, click [here](work/data_cleaning_notes.md).
 
-## Key Insights
+## Major Insights
 * Nine cities in Texas were classified as having a **High Health Burden Index** (>= 30), signaling significant challenges in **obesity**, **diabetes**, **smoking**, and **depression**.
 * All high-burden cities had rates **above the national average** for **obesity**, **diabetes**, and **smoking**, while **six out of the nine** exceeded the national average for **depression**:
    * **Obesity**: National Avg = 36.37%, City Range = 48.5%–53.3%
@@ -45,6 +47,13 @@ The project followed these key steps:
 * All nine cities had populations **under 6,500**, with **seven** located in **South Texas**, highlighting **regional and rural disparities** in chronic health burden.
 * In contrast, Texas cities with the **lowest Health Burden Index** were concentrated in major urban areas such as **Austin, Dallas-Fort Worth, San Antonio**, and **Houston**, suggesting goegraphic and socioeconomic disparities. 
 
+## Dashboard
+A visualization was created in Tableau to highlight cities with high health burden scores. Link attached is an interactive Texas map for high, moderate, and low Health Burden Index.
+[Interactive Texas Health Burden Index](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+![txhigh](images/txhigh.png)
+![txlow](images/txlow.png)
+
 ## Recommendations
 * **Targeted Local Interventions**: Focus public health resources on rural South Texas communities where chronic condition rates consistently exceed national averages.
 * **Culturally Tailored Health Campaigns**: Develop Spanish-language or bilingual educational initiatives addressing obesity, diabetes, and smoking prevention in predominantly Hispanic regions.
@@ -53,12 +62,8 @@ The project followed these key steps:
 * **Collaborate with Local Stakeholders**: Partner with faith organizations, local businesses, and public schools to amplify messaging and build trust within high-burden communities.
 * **Prioritize Behavioral Health Access**: While depression rates were slightly below national averages in some cities, the high combined burden justifies investment in integrated care models that treat both physical and mental health conditions together.
 
-## Dashboard
-A visualization was created in Tableau to highlight cities with high health burden scores. Link attached is an interactive Texas map for high, moderate, and low Health Burden Index.
-[Interactive Texas Health Burden Index](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
-
-![txhigh](images/txhigh.png)
-![txlow](images/txlow.png)
+## Next Steps
+* 
 
 ## Repository Contents
 * README.md – Project overview, objectives, technical process, insights, and recommendations.
