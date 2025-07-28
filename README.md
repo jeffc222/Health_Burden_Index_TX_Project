@@ -39,12 +39,12 @@ For a more detailed process, click [here](work/data_cleaning_notes.md).
 
 ## Major Insights
 * Nine cities in Texas were classified as having a **High HBI** (>= 30), signaling significant challenges in **obesity**, **diabetes**, **smoking**, and **depression**.
-* All high-burden cities had rates **above the national average** for **obesity**, **diabetes**, and **smoking**, while **six out of the nine** exceeded the national average for **depression**:
+* All high-burden cities had rates **above the national average** for **obesity**, **diabetes**, and **smoking**, while only **six out of the nine** exceeded the national average for **depression**:
    * **Obesity**: National Avg = 36.37%, City Range = 48.5%–53.3%
    * **Diabetes**: National Avg = 13.03%, City Range = 20.5%–28.1%
    * **Smoking**: National Avg = 16.61%, City Range = 20.7%–26.1%
    * **Depression**: National Avg = 23.19%, Three cities—South Point (23.10%), Gregory (23.10%), and Carrizo Springs (22.90%)—fell just **below** the threshold
-* All nine cities had populations **under 6,500**, with **seven** located in **South Texas**, highlighting **regional and rural disparities** in chronic health burden.
+* All nine high-burden cities had populations **under 6,500**, with **seven** located in **South Texas**, highlighting **regional and rural disparities** in chronic health burden.
 * In contrast, Texas cities with the **lowest HBI** were concentrated in major urban areas such as **Austin, Dallas-Fort Worth, San Antonio**, and **Houston**, suggesting goegraphic and socioeconomic disparities. 
 
 ## Visualizations
