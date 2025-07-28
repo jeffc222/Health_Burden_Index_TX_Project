@@ -1,6 +1,6 @@
 # Health Burden Index for Texas Cities (2024 CDC PLACES Data)
 ## Overview
-This project analyzes city-level health burdens across Texas using the [**CDC PLACES Local 2024 dataset**](data) , which is based on the 2022 Behavioral Risk Factor Surveillance System (BRFSS) data. A custom **Health Burden Index (HBI)** was developed to assess the combined impact of four key health indicators: **obesity**, **diabetes**, **smoking**, and **depression**.
+This project analyzes city-level health burdens across Texas using the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md) , which is based on the 2022 Behavioral Risk Factor Surveillance System (BRFSS) data. A custom **Health Burden Index (HBI)** was developed to assess the combined impact of four key health indicators: **obesity**, **diabetes**, **smoking**, and **depression**.
 
 The goal is to identify cities with the highest health burden and explore patterns that can inform public health priorities and interventions.
 
@@ -78,6 +78,6 @@ Explore the distribution of the **Health Burden Index (HBI)** across Texas citie
   * txlow.png - Tableau map visualization of low-burden Texas cities.
 
 ## Disclaimer
-This project is for educational and portfolio purposes only. The dataset used in this analysis is publicly available through the [**CDC PLACES: Local Data for Better Health 2024**](data). All data belongs to the original source.
+This project is for educational and portfolio purposes only. The dataset used in this analysis is publicly available through the [**CDC PLACES: Local Data for Better Health 2024**](data/dataset_link.md). All data belongs to the original source.
 
 
