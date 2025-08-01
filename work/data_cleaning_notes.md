@@ -2,7 +2,7 @@
 ## Overview
 This project analyzes the geographic distribution of chronic health burdens across Texas cities using the **[CDC PLACES: Local Data for Better Health (2024 release)](../data/dataset_link.md)**. The data is primarily from the 2022 Behavioral Risk Factor Surveillance System (BRFSS). A custom **Health Burden Index (HBI)** was developed to measure the combined prevalence of four key indicators: **obesity, diabetes, smoking, and depression**, reported at the city (place) level.
 
-The **Health Burden Index (HBI)** is a simple average of the prevalence rates of the four selected conditions, calculated for each city to capture its overall chronic disease burden in a single score. This metric enables comparison across locations by summarizing multiple health risks into one interpretable value. 
+The **Health Burden Index (HBI)** is a simple average of the prevalence rates of the four selected conditions, calculated for each city by averaging the four selected prevalence rates to capture its overall chronic disease burden in a single score. This metric enables comparison across locations by summarizing multiple health risks into one interpretable value. 
 
 The original dataset was imported into BigQuery and contained over **2.2 million rows** and **22 columns**. It included prevalence estimates for over 40 health outcomes across multiple geographic levels. This analysis focused specifically on place-level data for Texas. The data was filtered, reshaped, and visualized to enable meaningful city-level comparisons and support targeted public health planning. 
 
@@ -18,7 +18,7 @@ The goal of this analysis was to **identify Texas cities** with notably **high c
 * **YEAR** = 2022
 * **Data_Value_Type** = 'Crude Prevalence'
 * **Measure_ID** (Health Indicators) = 'OBESITY', 'DIABETES', 'CSMOKING', 'DEPRESSION'
-* Only rows with **non-null values** for all selected indicators
+* **Non-null values** for the selected indicators
 
 The filtered records were then reshaped using a **pivot transformation** (MAX(CASE WHEN ...)) so that each row represented a unique city/place, with four separate columns for the health indicators. A new column was created to calculate the **Health Burden Index (HBI)** by averaging the four prevalence values.
 
@@ -76,7 +76,7 @@ The following refinements were completed in **Google Sheets:**
 
 **Rationale:**
 
-Comparing cities to national benchmarks for each indicator highlights specific areas of concern and helps prioritize intervention efforts. Cities with high HBI and multiple elevated indicators can be flagged for urgent attention. These visual cues make the dashboard immediately actionable even without technical background.
+Comparing cities to national benchmarks for each indicator highlights specific areas of concern and helps prioritize intervention efforts. Cities with high HBI and multiple elevated indicators can be flagged for urgent attention. These visual cues make the dashboard more actionable, especially for non-technical users.
 
 Limiting the dataset to **Texas cities with >500 residents** improves interpretability and reduces statistical noise from sparsely populated locations, ensuring that the final visualization is grounded in stable and policy-relevant data.
 
@@ -111,5 +111,5 @@ Labeling **only High HBI** cities was a deliberate design choice to prevent visu
 * Cities with **population < 500** were excluded to avoid statistical noise in small-area estimates and improve clarity in the visualization.
 * The project used **2022 BRFSS-based model estimates** from the [2024 PLACES Local release](../data/dataset_link.md). Measures such as high blood pressure were excluded as they were based on 2021 BRFSS data in this release cycle.
 * Geolocation fields were used as-is from the dataset, **no manual geocoding or correction was applied.**
-* **Google Sheets** was used for lightweight analysis.For more advanced statistical modeling or time-series comparisons, a tool like Python or R would be more suitable.
+* **Google Sheets** was used for lightweight analysis. For more advanced statistical modeling or time-series comparisons, a tool like Python or R would be more suitable.
 
