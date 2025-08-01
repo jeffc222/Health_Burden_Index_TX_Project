@@ -1,17 +1,18 @@
 # Health Burden Index for Texas Cities (2024 CDC PLACES Data)
 ## Overview
-This project analyzes city-level health burdens across Texas using the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md) , which is based on the 2022 Behavioral Risk Factor Surveillance System (BRFSS) data. A custom **Health Burden Index (HBI)** was developed to assess the combined impact of four key health indicators: **obesity**, **diabetes**, **smoking**, and **depression**.
+This project analyzes chronic health burdens across Texas cities using the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md) , which is based on the 2022 Behavioral Risk Factor Surveillance System (BRFSS) data. A custom **Health Burden Index (HBI)** was developed to represent the average prevalence of four key conditions: **obesity**, **diabetes**, **smoking**, and **depression**.
 
-The goal is to identify cities with the highest health burden and explore patterns that can inform public health priorities and interventions.
+The **Health Burden Index (HBI)** condenses city-level health risk into a single, interpretable score, enabling meaningful comparisons and clear geographic visualizations. This analysis focuses on identifying cities with the highest cumulative burden to inform data-driven public health planning across Texas. 
+
 
 ## Objectives
 * Calculate a Health Burden Index for each city in Texas
 * Compare cities across Texas using **Health Burden Index (HBI)**
 * Provide insights and recommendations for public health planning
-* Highlight high-burden areas with clear, map-based visualizations
+* Highlight high-burden areas using map-based visulaizations to support geographic comparisons
 
 ## Dataset Structure
-The final dataset was derived from two tables within the same dataset file from the **CDC PLACES Local 2024 dataset**. One table contained health indicators (e.g. **obesity**, **diabetes**, **smoking**, and **depression**) and their values, while the other provided population counts. Both tables were linked using a common identifier, **LocationId**, to create a unified dataset for analysis. 
+The final dataset was constructed by extracting city-level prevalence estimates from the **[CDC PLACES Local 2024 dataset](data/dataset_link.md)** file. Health indicators were filtered to include **obesity**, **diabetes**, **smoking**, and **depression**, while **population counts** were joined from a secondary table using the shared **LocationId** field. 
 
 ![places](images/places.png)
 
@@ -33,24 +34,24 @@ The project followed these key steps:
 4. **Visualization in Tableau**  
    * Created a choropleth-style map to visualize **HBI** across cities.
    * Emphasized cities labeled "High" based on threshold logic (>=30).
-   * Labels and tooltip customization applied for clarity.
+   * Tooltips include city name, **HBI**, and condition values to preserve analytic depth.
    
-For a more detailed process, click [here](work/data_cleaning_notes.md).
+For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_places.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
+
 
 ## Major Insights
+The analysis highlights clear patterns among cities with the highest **HBI** scores, including elevated condition rates, regional clustering, and population disparities.
 * Nine cities in Texas were classified as having a **High HBI** (>= 30), signaling significant challenges in **obesity**, **diabetes**, **smoking**, and **depression**.
-* All high-burden cities had rates **above the national average** for **obesity**, **diabetes**, and **smoking**, while only **six out of the nine** exceeded the national average for **depression**:
+* All high-burden cities **exceeded** national rates for **obesity**, **diabetes**, and **smoking**. Only **six out of the nine** exceeded the national benchmark for **depression**:
    * **Obesity**: National Avg = 36.37%, City Range = 48.5%–53.3%
    * **Diabetes**: National Avg = 13.03%, City Range = 20.5%–28.1%
    * **Smoking**: National Avg = 16.61%, City Range = 20.7%–26.1%
    * **Depression**: National Avg = 23.19%, Three cities—South Point (23.10%), Gregory (23.10%), and Carrizo Springs (22.90%)—fell just **below** the threshold
 * All nine high-burden cities had populations **under 6,500**, with **seven** located in **South Texas**, highlighting **regional and rural disparities** in chronic health burden.
-* In contrast, Texas cities with the **lowest HBI** were concentrated in major urban areas such as **Austin, Dallas-Fort Worth, San Antonio**, and **Houston**, suggesting goegraphic and socioeconomic disparities. 
+* In contrast, Texas cities with the **lowest HBI** were concentrated in major urban areas such as **Austin, Dallas-Fort Worth, San Antonio**, and **Houston**, suggesting geographic and socioeconomic disparities. 
 
 ## Visualizations
-Explore the distribution of the **Health Burden Index (HBI)** across Texas cities.
-* **[Interactive Texas Health Burden Index Map](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)**: Tableau dashboard categorizing cities as **High**, **Moderate**, or **Low** based on the **Health Burden Index (HBI)**.
-* **Static Snapshots**: Images below showcase cities with **High HBI** scores and **Low HBI** scores for quick visual comparison.  
+The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) allows users to explore **HBI** patterns across **Texas** cities. Cities are color-coded by burden level and enriched with tooltips showing prevalence values for all four conditions. Static images below highlight examples of cities with **high** and **low HBI** scores. 
 ![txhigh](images/txhigh.png)
 ![txlow](images/txlow.png)
 
@@ -60,9 +61,9 @@ Explore the distribution of the **Health Burden Index (HBI)** across Texas citie
 * **School and Community-Based Programs**: Launch early-intervention programs targeting nutrition, physical activity, and mental health support in schools and community centers.
 
 ## Action Plan
-* **Apply Interventions**: Implement targeted programs in high-burden communities based on the recommendations outlined above.
-* **Monitor Progress**: Reassess the **Health Burden Index** annually using updated data to track changes in obesity, diabetes, smoking, and depression.
-* **Evaluate & Adjust**: Use year-over-year trends to evaluate impact and refine strategies for more effective long-term public health planning.
+* **Target Resources:** Direct outreach, education, and funding to **high-HBI** cities
+* **Reassess Annually:** Update **HBI** scores yearly using new CDC PLACES releases
+* **Track Outcomes:** Monitor progress in each city and refine strategies as needed
 
 ## Repository Contents
 * README.md – Project overview, objectives, technical process, insights, and recommendations.
