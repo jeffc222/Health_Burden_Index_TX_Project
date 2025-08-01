@@ -2,9 +2,7 @@
 ## Overview
 This project analyzes the geographic distribution of chronic health burdens across Texas cities using the **CDC PLACES: Local Data for Better Health (2024 release)(../data/dataset_link.md)**. The data is mostly derived from the 2022 Behavioral Risk Factor Surveillance System (BRFSS). A custom **Health Burden Index (HBI)** was developed to measure the combined prevalence of four key indicators: **obesity, diabetes, smoking, and depression**, reported at the city (place) level.
 
-The original dataset was imported into BigQuery and contained over **2.2 million rows** and **22 columns**. It included prevalence estimates for over 40 health outcomes across multiple geographic levels. This analysis focuseed specifically on place-level data for Texas. The data was filtered, reshaped, and visualized to enable meaningful city-level comparisons and support targeted public health planning. 
-
-covering model-based prevalence estimates for more than 40 health outcomes across multiple geographies. This project focused exclusively on **place-level data within Texas**, which was cleaned, reshaped, and visualized to support city-level comparisons and inform public health interventions.
+The original dataset was imported into BigQuery and contained over **2.2 million rows** and **22 columns**. It included prevalence estimates for over 40 health outcomes across multiple geographic levels. This analysis focused specifically on place-level data for Texas. The data was filtered, reshaped, and visualized to enable meaningful city-level comparisons and support targeted public health planning. 
 
 ---
 
@@ -26,40 +24,56 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
 
 --- 
 
-## Step 2: Data Reshaping and Index Construction (SQL)
-**Objective:** Pivot the dataset and calculate a composite **Health Burden Index (HBI)** for each city.
+## Step 2: Classify Health Burden Levels and Add Popultaion Data (Google Sheets)
+**Objective:** Enhance the **HBI** dataset by classifying cities into health burden categories and integrating population data for contextual analysis.
 
-**Process:**
-* Applied MAX(CASE WHEN...) statements to pivot the data into wide format, producing one row per city with columns for each of the four indicators.
-* Calculated the **HBI** as the arithmetic mean of the four selected prevalence values, rounded to two decimal places.
-* Ranked all cities in Texas by descending HBI value to identify the highest-burden areas.
+**Process**: After exporting the cleaned HBI dataset from BigQuery, the following steps were performed ing **Google Sheets:**
 
-**Rationale:** A wide format enabled straightforward aggregation and ranking. Using a **simple average** of the four indicators ensures transparency, avoids weighting bias, and gives equal consideration to all conditions. The resulting index allows for a single-metric comparison of health burden across cities.
+1. Created a new column for **Health Burden Level:**
+   * **High** if HBI >= 30
+   * **Moderate** if HBI <30 and >=20
+   * **Low** if HBI <20
+2. Applied conditional formatting to color-code the Health Burden Level column:
+   * Red for High (>=30)
+   * Yellow for Moderate (20-29.99)
+   * Green for Low (<20)
+3. Used VLOOKUP to join **TotalPopulation** and **TotalPop18plus** columns from a second sheet based on LocationID.
+4. Combined the enriched HBI dataset and population data into a unified "hbi with pop" tab for further filtering and formatting.
+
+**Rationale:**
+Categorizing cities into burden levels improves interpretability and allows quick visual scanning of risk patterns. The threshold of **30+ for “High” HBI** reflects a severe cumulative burden when all four indicators (each often above national average) are elevated. **20–29.99 for “Moderate”** reflects elevated but non-critical levels, and scores **under 20** indicate relatively lower burden.
+
+Including **population data** enables two important filters: (1) eliminating cities too small for stable estimates and (2) prioritizing cities based on impact potential. Both **TotalPopulation** and **TotalPop18plus** were included to allow flexibility, but only **TotalPopulation** was ultimately used for filtering.
 
 ---
 
-## Step 3: Population Data Join and Filtering (Google Sheets)
-**Objective:** Enrich the dataset with city population estimates and exclude sparsely populated areas.
+## Step 3: Benchmarking and Final Filtering (Google Sheets)
+**Objective:** Finalize the dataset for visualization by highlighting indicator-specific patterns and limiting the scope to actionable, reliable city-level data in Texas.
 
 **Process:**
-* Used a secondary table from the same PLACES dataset containing **TotalPopulation** for each location.
-* Imported the table into Google Sheets and merged it with the main HBI dataset using LocationID via **VLOOKUP.**
-* Applied a **population filter** to retain only cities with **500 or more residents.**
+The following refinements were made in the same spreadsheet:
+1. Used **SQL-calculated national averages** for each indicator (Obesity, Diabetes, Smoking, Depression) and entered these into a header row.
+2. Applied **conditional formatting** to each indicator column:
+   * Cells with values **above the national average** were highlighted in red
+   * Cells **at or below average** remained unformatted
+3. Filtered the unified dataset to include:
+   * Only cities in Texas
+   * Only cities with TotalPopulation > 500
 
-**Rationale:** Cities with very small populations often produce unstable estimates that can distort rankings due to model-based variability or rounding artifacts. A 500-person cutoff balances inclusivity with data reliability, helping to ensure that trends reflect meaningful community-level burdens rather than statistical noise.
+**Rationale:**
+Benchmarking cities against national averages helps contextualize local prevalence rates. Cities with HBI ≥ 30 and multiple indicators above national norms demand more urgent attention.
 
----
+Filtering for Texas only narrowed the focus of the project, aligning with its original geographic scope. The population threshold of >500 excluded extremely small or rural towns where model-based estimates can be unstable, ensuring the final dataset was suitable for public health recommendations and visualization.
 
 
 
-## 5. Formatting in Google Sheets
-Ensured consistent number formatting (1–2 decimal places).
 
-Applied filters to allow exploratory sorting (by state, city, indicator, etc.).
 
-Conditional formatting:
-* Health Level colors: Green (Low), Yellow (Moderate), Red (High)
-* Highlighted values above national averages
+
+
+
+
+
 
 ## 6. Exported Clean Dataset
 Filtered final table to only include Texas cities with population > 500.
