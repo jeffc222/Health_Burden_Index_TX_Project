@@ -37,7 +37,7 @@ The project followed these key steps:
    * Emphasized cities labeled "High" based on threshold logic (>=30).
    * Tooltips include city name, **HBI**, and condition values to preserve analytic depth.
    
-For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI places.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
+For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_place.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
 
 
 ## Key Findings
