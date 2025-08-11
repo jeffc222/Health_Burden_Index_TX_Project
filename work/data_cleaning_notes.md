@@ -32,7 +32,7 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
 ## Step 2: Classify Health Burden Levels and Add Population Data (Google Sheets)
 **Objective:** Enhance the **HBI** dataset by categorizing cities based on their calculated **HBI** and integrating population data for contextual analysis.
 
-**Process**: After exporting the cleaned HBI dataset from BigQuery, the following steps were performed in **Google Sheets:**
+**Process:** After exporting the cleaned HBI dataset from BigQuery, the following steps were performed in **Google Sheets:**
 
 1. Created a new column for **Health Burden Level:**
    * **High** if HBI ≥ 30
