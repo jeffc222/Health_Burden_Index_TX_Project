@@ -1,4 +1,4 @@
-# Data Cleaning Notes- Health Burden Index for Texas Cities (2024 CDC PLACES Data)
+# Data Cleaning Notes: Health Burden Index for Texas Cities (2024 CDC PLACES Data)
 ## Overview
 This project analyzes the geographic distribution of chronic health burdens across Texas cities using the **[CDC PLACES: Local Data for Better Health (2024 release)](../data/dataset_link.md)**. The data is primarily from the 2022 Behavioral Risk Factor Surveillance System (BRFSS). A custom **Health Burden Index (HBI)** was developed to measure the combined prevalence of four key indicators: **obesity, diabetes, smoking, and depression**, reported at the city (place) level.
 
@@ -36,7 +36,7 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
 
 1. Created a new column for **Health Burden Level:**
    * **High** if HBI ≥ 30
-   * **Moderate** if ≤ 20 HBI < 30
+   * **Moderate** if 20 ≤ HBI < 30
    * **Low** if HBI < 20
 2. Applied conditional formatting to color-code the Health Burden Level column:
    * Red for High (≥ 30)
