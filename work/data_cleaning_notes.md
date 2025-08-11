@@ -36,11 +36,11 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
 
 1. Created a new column for **Health Burden Level:**
    * **High** if HBI ≥ 30
-   * **Moderate** if HBI 20 ≤ HBI < 30
+   * **Moderate** if HBI ≤ 20 and < 30
    * **Low** if HBI < 20
 2. Applied conditional formatting to color-code the Health Burden Level column:
    * Red for High (≥ 30)
-   * Yellow for Moderate (20-29.99)
+   * Yellow for Moderate (2029.99)-, –, —
    * Green for Low (< 20)
 3. Calculated category counts and percent share
    * Used COUNTIF to count High, Moderate, and Low
@@ -86,9 +86,9 @@ The following refinements were completed in **Google Sheets:**
   * Cities with **TotalPopulation > 500**
 3. Calculated Texas counts and percent share after filtering
   * Used COUNTIFS to count High, Moderate, and Low with the state and population filters
-    * High: =COUNTIFS(A:A,"TX", K:K,"High", L:L,">500") to get 9 cities
-    * Moderate: =COUNTIFS(A:A,"TX", K:K,"Moderate", L:L,">500") to get 1,068 cities
-    * Low: =COUNTIFS(A:A,"TX", K:K,"Low", L:L,">500") to get 172 cities
+    * High: =COUNTIFS(A:A,"TX", K:K,"High", L:L,">500") → 9 cities
+    * Moderate: =COUNTIFS(A:A,"TX", K:K,"Moderate", L:L,">500") → 1,068 cities
+    * Low: =COUNTIFS(A:A,"TX", K:K,"Low", L:L,">500") → 172 cities
   * Used SUM to get the total city count
     * Total: 1,249
   * Divided each count by the total to compute percent share
