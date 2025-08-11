@@ -40,7 +40,7 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
    * **Low** if HBI < 20
 2. Applied conditional formatting to color-code the Health Burden Level column:
    * Red for High (≥ 30)
-   * Yellow for Moderate (2029.99)-, –, —
+   * Yellow for Moderate (20–29.99)
    * Green for Low (< 20)
 3. Calculated category counts and percent share
    * Used COUNTIF to count High, Moderate, and Low
@@ -111,7 +111,7 @@ Comparing cities to national benchmarks for each indicator highlights specific a
 2. Created a **choropleth-style map** of Texas using latitude and longitude fields from the original dataset.
 3. Used **color encoding** to represent HBI categories:
    * Red for High (HBI ≥ 30)
-   * Yellow for Moderate (20-29.99)
+   * Yellow for Moderate (20–29.99)
    * Green for Low (< 20)
 4. Customized map tooltips to display city name, HBI, and all four health indicator values.
 5. Applied label visibility logic to emphasize **only High HBI cities,** reducing clutter and focusing attention.
