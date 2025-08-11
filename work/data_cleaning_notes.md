@@ -8,7 +8,6 @@ The original dataset was imported into BigQuery and contained over **2.2 million
 
 The goal of this analysis was to **identify Texas cities** with notably **high cumulative health burdens** to inform targeted community interventions. 
 
-
 ---
 
 ## Step 1: Dataset Extraction and Reshaping (SQL in BigQuery)
@@ -43,12 +42,24 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
    * Red for High (>=30)
    * Yellow for Moderate (20-29.99)
    * Green for Low (<20)
-3. Used VLOOKUP to join **TotalPopulation** and **TotalPop18plus** columns from a second sheet based on LocationID.
-4. Combined the enriched HBI dataset and population data into a unified "hbi with pop" tab for further filtering and formatting.
+3. Calculated category counts and percentages
+   * Used COUNTIF to count High, Moderate, and Low
+       * High: 587 cities
+       * Moderate: 21,948 cities
+       * Low: 7,387 cities
+   * Used SUM to get the total city count
+       * Total 29,923
+   * Divided each count by the total and formatted as percentages
+       * High: 1.96%
+       * Moderate: 73.35%
+       * Low: 24.69%
+4. Used VLOOKUP to join **TotalPopulation** and **TotalPop18plus** columns from a second sheet based on LocationID.
+5. Combined the enriched HBI dataset and population data into a unified "hbi with pop" tab for further filtering and formatting.
 
 **Rationale:**
 
-Categorizing cities into burden levels improves interpretability and allows quick visual scanning of risk patterns. The threshold of **30+ for “High” HBI** represents a severe cumulative burden when multiple key health indicators exceed national norms. **20–29.99 for “Moderate”** reflects elevated but non-critical levels, and scores **under 20** indicate relatively lower burden.
+Categorizing cities into burden levels improves interpretability and allows quick visual scanning of risk patterns. We anchored the cut points to the observed **HBI range (max ≈ 37.9, min ≈ 7.75)** and to policy intent. 30 or higher reserves High for the upper end of the scale, 20-29.99 captures the mid range, and less than 20 marks scores well below the ceiling. In the extracted city level dataset, this yields 587 High (~2 %), 21,948 (~73%), and 7,387 (~25%). This intentionally keeps High as an exception group that signals servere, multi indicator burden, where multiple indicators exceed national norms. Moderate flags elevated but not critical levels, and Low inidcates relatively lower burden. Using round numbers 20 and 30 keeps the scheme simple and easy for non-technical readers to interpret on the map and in tables. 
+
 
 Including **population data** enables two important filters: 
 
@@ -65,20 +76,29 @@ Both **TotalPopulation** and **TotalPop18plus** were included to allow flexibili
 **Process:**
 The following refinements were completed in **Google Sheets:**
 1. Applied **conditional formatting** to each indicator column (Obesity, Diabetes, Smoking, Depression) based on the corresponding **national average** (calculated in SQL):
-   * Cells with values above the national average were highlighted:
+  * Cells with values above the national average were highlighted:
      * Obesity → light orange
      * Diabetes → light blue
      * Smoking → light red
      * Depression → light purple
 2. Filtered the dataset to include only:
-   * Cities located in **Texas**
-   * Cities with **TotalPopulation > 500**
+  * Cities located in **Texas**
+  * Cities with **TotalPopulation > 500**
+3. Calculated Texas counts and percentages after filtering
+  * Used COUNTIFS to count High, Moderate, and Low with the state and population filters
+    * High: =COUNTIFS(A:A,"TX", K:K,"High", L:L,">500")
+    * Moderate: =COUNTIFS(A:A,"TX", K:K,"Moderate", L:L,">500")
+    * Low: =COUNTIFS(A:A,"TX", K:K,"Low", L:L,">500")
+  * Computed Total as the sum of the three counts
+    * Total: 1,249
+  * Computed Percent share as each count divided by the total and formatted as a percentageResults
+    * High: 0.72%
+    * Moderate: 85.51%
+    * Low: 13.77%
 
 **Rationale:**
 
-Comparing cities to national benchmarks for each indicator highlights specific areas of concern and helps prioritize intervention efforts. Cities with high HBI and multiple elevated indicators can be flagged for urgent attention. These visual cues make the dashboard more actionable, especially for non-technical users.
-
-Limiting the dataset to **Texas cities with >500 residents** improves interpretability and reduces statistical noise from sparsely populated locations, ensuring that the final visualization is grounded in stable and policy-relevant data.
+Comparing cities to national benchmarks for each indicator highlights specific areas of concern and helps prioritize intervention efforts. After filtering to Texas and a **minimum population of 500,** the distribution remains concentrated in the Moderate tier, while High remains an exception group. The **greater than 500 cutoff** is a practical quality filter. Very small places produce unstable rates because a few responses can swing model based estimates. The cutoff reduces that noise, keeps the map readable, and centers recommendations on communities large enough for city level programs and clinic deployment. It excludes about 500 of the smallest places while retaining 1,249 Texas cities for analysis, which preserves statewide coverage with minimal loss of signal.
 
 ---
 
