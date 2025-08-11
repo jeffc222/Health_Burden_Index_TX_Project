@@ -38,18 +38,18 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
    * **High** if HBI >= 30
    * **Moderate** if HBI <30 and >=20
    * **Low** if HBI <20
-2. Applied conditional formatting to color-coded the Health Burden Level column:
+2. Applied conditional formatting to color-code the Health Burden Level column:
    * Red for High (>=30)
    * Yellow for Moderate (20-29.99)
    * Green for Low (<20)
-3. Calculated category counts and percentages
+3. Calculated category counts and percent share
    * Used COUNTIF to count High, Moderate, and Low
        * High: 587 cities
        * Moderate: 21,949 cities
        * Low: 7,387 cities
    * Used SUM to get the total city count
-       * Total 29,923
-   * Divided each count by the total and formatted as percentages
+       * Total: 29,923
+   * Divided each count by the total and formatted as percent share
        * High: 1.96%
        * Moderate: 73.35%
        * Low: 24.69%
@@ -58,7 +58,7 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
 
 **Rationale:**
 
-Categorizing cities into burden levels improves interpretability and allows quick visual scanning of risk patterns. We anchored the cut points to the observed **HBI range (max ≈ 37.9, min ≈ 7.75)** and to policy intent. 30 or higher reserves High for the upper end of the scale, 20-29.99 captures the mid-range, and less than 20 marks scores well below the ceiling. In the extracted city level dataset, this yields 587 High (~2 %), 21,948 (~73%), and 7,387 (~25%). This intentionally keeps High as an exception group that signals severe, multi indicator burden, where multiple indicators exceed national norms. Moderate flags elevated but not critical levels, and Low indicates relatively lower burden. Using round numbers 20 and 30 keeps the scheme simple and easy for non-technical readers to interpret on the map and in tables. 
+Categorizing cities into burden levels improves interpretability and allows quick visual scanning of risk patterns. We anchored the cut points to the observed **HBI range (max ≈ 37.9, min ≈ 7.75)** and to policy intent. 30 or higher reserves High for the upper end of the scale, 20-29.99 captures the mid-range, and less than 20 marks scores well below the ceiling. In the extracted city-level dataset, this yields 587 High (~2%), 21,949 (~73%), and 7,387 (~25%). This intentionally keeps High as an exception group that signals severe, multi-indicator burden, where multiple indicators exceed national norms. Moderate flags elevated but not critical levels, and Low indicates relatively lower burden. Using round numbers 20 and 30 keeps the scheme simple and easy for non-technical readers to interpret on the map and in tables. 
 
 
 Including **population data** enables two important filters: 
@@ -84,21 +84,21 @@ The following refinements were completed in **Google Sheets:**
 2. Filtered the dataset to include only:
   * Cities located in **Texas**
   * Cities with **TotalPopulation > 500**
-3. Calculated Texas counts and percentages after filtering
+3. Calculated Texas counts and percent share after filtering
   * Used COUNTIFS to count High, Moderate, and Low with the state and population filters
-    * High: =COUNTIFS(A:A,"TX", K:K,"High", L:L,">500")
-    * Moderate: =COUNTIFS(A:A,"TX", K:K,"Moderate", L:L,">500")
-    * Low: =COUNTIFS(A:A,"TX", K:K,"Low", L:L,">500")
-  * Computed Total as the sum of the three counts
+    * High: =COUNTIFS(A:A,"TX", K:K,"High", L:L,">500") to get 9 cities
+    * Moderate: =COUNTIFS(A:A,"TX", K:K,"Moderate", L:L,">500") to get 1,068 cities
+    * Low: =COUNTIFS(A:A,"TX", K:K,"Low", L:L,">500") to get 172 cities
+  * Used SUM to get the total city count
     * Total: 1,249
-  * Computed Percent share as each count divided by the total and formatted as percentages
+  * Formatted as percent share
     * High: 0.72%
     * Moderate: 85.51%
     * Low: 13.77%
 
 **Rationale:**
 
-Comparing cities to national benchmarks for each indicator highlights specific areas of concern and helps prioritize intervention efforts. After filtering to Texas and a **minimum population of 500,** the distribution remains concentrated in the Moderate tier, while High remains an exception group. The **greater than 500 cutoff** is a practical quality filter. Very small places produce unstable rates because a few responses can swing model based estimates. The cutoff reduces that noise, keeps the map readable, and centers recommendations on communities large enough for city level programs and clinic deployment. It excludes about 500 of the smallest places while retaining 1,249 Texas cities for analysis, which preserves statewide coverage with minimal loss of signal.
+Comparing cities to national benchmarks for each indicator highlights specific areas of concern and helps prioritize intervention efforts. After filtering to Texas and a **minimum population of 500**, the distribution remains concentrated in the Moderate tier, while High remains an exception group. The **greater than 500 cutoff** is a practical quality filter. Very small places produce unstable rates because a few responses can swing model-based estimates. The cutoff reduces that noise, keeps the map readable, and centers recommendations on communities large enough for city-level programs and clinic deployment. It excludes about 500 of the smallest places while retaining 1,249 Texas cities for analysis, which preserves statewide coverage with minimal loss of signal.
 
 ---
 
