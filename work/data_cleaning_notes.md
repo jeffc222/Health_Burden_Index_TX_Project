@@ -35,13 +35,13 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
 **Process**: After exporting the cleaned HBI dataset from BigQuery, the following steps were performed in **Google Sheets:**
 
 1. Created a new column for **Health Burden Level:**
-   * **High** if HBI >= 30
-   * **Moderate** if HBI <30 and >=20
-   * **Low** if HBI <20
+   * **High** if HBI ≥ 30
+   * **Moderate** if HBI 20 ≤ HBI < 30
+   * **Low** if HBI < 20
 2. Applied conditional formatting to color-code the Health Burden Level column:
-   * Red for High (>=30)
+   * Red for High (≥ 30)
    * Yellow for Moderate (20-29.99)
-   * Green for Low (<20)
+   * Green for Low (< 20)
 3. Calculated category counts and percent share
    * Used COUNTIF to count High, Moderate, and Low
        * High: 587 cities
@@ -49,7 +49,7 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
        * Low: 7,387 cities
    * Used SUM to get the total city count
        * Total: 29,923
-   * Divided each count by the total and formatted as percent share
+   * Divided each count by the total to compute percent share
        * High: 1.96%
        * Moderate: 73.35%
        * Low: 24.69%
@@ -91,7 +91,7 @@ The following refinements were completed in **Google Sheets:**
     * Low: =COUNTIFS(A:A,"TX", K:K,"Low", L:L,">500") to get 172 cities
   * Used SUM to get the total city count
     * Total: 1,249
-  * Formatted as percent share
+  * Divided each count by the total to compute percent share
     * High: 0.72%
     * Moderate: 85.51%
     * Low: 13.77%
