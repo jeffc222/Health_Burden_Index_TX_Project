@@ -36,7 +36,7 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
 
 1. Created a new column for **Health Burden Level:**
    * **High** if HBI ≥ 30
-   * **Moderate** if HBI ≤ 20 and < 30
+   * **Moderate** if ≤ 20 HBI < 30
    * **Low** if HBI < 20
 2. Applied conditional formatting to color-code the Health Burden Level column:
    * Red for High (≥ 30)
@@ -58,7 +58,7 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
 
 **Rationale:**
 
-Categorizing cities into burden levels improves interpretability and allows quick visual scanning of risk patterns. We anchored the cut points to the observed **HBI range (max ≈ 37.9, min ≈ 7.75)** and to policy intent. 30 or higher reserves High for the upper end of the scale, 20-29.99 captures the mid-range, and less than 20 marks scores well below the ceiling. In the extracted city-level dataset, this yields 587 High (~2%), 21,949 (~73%), and 7,387 (~25%). This intentionally keeps High as an exception group that signals severe, multi-indicator burden, where multiple indicators exceed national norms. Moderate flags elevated but not critical levels, and Low indicates relatively lower burden. Using round numbers 20 and 30 keeps the scheme simple and easy for non-technical readers to interpret on the map and in tables. 
+Categorizing cities into burden levels improves interpretability and allows quick visual scanning of risk patterns. We anchored the cut points to the observed **HBI range (max ≈ 37.9, min ≈ 7.75)** and to policy intent. 30 or higher reserves High for the upper end of the scale, 20–29.99 captures the mid-range, and less than 20 marks scores well below the ceiling. In the extracted city-level dataset, this yields 587 High (~2%), 21,949 (~73%), and 7,387 (~25%). This intentionally keeps High as an exception group that signals severe, multi-indicator burden, where multiple indicators exceed national norms. Moderate flags elevated but not critical levels, and Low indicates relatively lower burden. Using round numbers 20 and 30 keeps the scheme simple and easy for non-technical readers to interpret on the map and in tables. 
 
 
 Including **population data** enables two important filters: 
