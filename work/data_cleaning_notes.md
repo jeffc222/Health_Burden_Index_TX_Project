@@ -38,14 +38,14 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
    * **High** if HBI >= 30
    * **Moderate** if HBI <30 and >=20
    * **Low** if HBI <20
-2. Applied conditional formatting to color-code the Health Burden Level column:
+2. Applied conditional formatting to color-coded the Health Burden Level column:
    * Red for High (>=30)
    * Yellow for Moderate (20-29.99)
    * Green for Low (<20)
 3. Calculated category counts and percentages
    * Used COUNTIF to count High, Moderate, and Low
        * High: 587 cities
-       * Moderate: 21,948 cities
+       * Moderate: 21,949 cities
        * Low: 7,387 cities
    * Used SUM to get the total city count
        * Total 29,923
@@ -58,7 +58,7 @@ The use of **Crude Prevalence** ensures consistency across cities without adjust
 
 **Rationale:**
 
-Categorizing cities into burden levels improves interpretability and allows quick visual scanning of risk patterns. We anchored the cut points to the observed **HBI range (max ≈ 37.9, min ≈ 7.75)** and to policy intent. 30 or higher reserves High for the upper end of the scale, 20-29.99 captures the mid range, and less than 20 marks scores well below the ceiling. In the extracted city level dataset, this yields 587 High (~2 %), 21,948 (~73%), and 7,387 (~25%). This intentionally keeps High as an exception group that signals servere, multi indicator burden, where multiple indicators exceed national norms. Moderate flags elevated but not critical levels, and Low inidcates relatively lower burden. Using round numbers 20 and 30 keeps the scheme simple and easy for non-technical readers to interpret on the map and in tables. 
+Categorizing cities into burden levels improves interpretability and allows quick visual scanning of risk patterns. We anchored the cut points to the observed **HBI range (max ≈ 37.9, min ≈ 7.75)** and to policy intent. 30 or higher reserves High for the upper end of the scale, 20-29.99 captures the mid range, and less than 20 marks scores well below the ceiling. In the extracted city level dataset, this yields 587 High (~2 %), 21,948 (~73%), and 7,387 (~25%). This intentionally keeps High as an exception group that signals severe, multi indicator burden, where multiple indicators exceed national norms. Moderate flags elevated but not critical levels, and Low indicates relatively lower burden. Using round numbers 20 and 30 keeps the scheme simple and easy for non-technical readers to interpret on the map and in tables. 
 
 
 Including **population data** enables two important filters: 
@@ -91,7 +91,7 @@ The following refinements were completed in **Google Sheets:**
     * Low: =COUNTIFS(A:A,"TX", K:K,"Low", L:L,">500")
   * Computed Total as the sum of the three counts
     * Total: 1,249
-  * Computed Percent share as each count divided by the total and formatted as a percentageResults
+  * Computed Percent share as each count divided by the total and formatted as percentages
     * High: 0.72%
     * Moderate: 85.51%
     * Low: 13.77%
