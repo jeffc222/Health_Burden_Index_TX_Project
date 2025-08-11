@@ -54,7 +54,7 @@ The analysis reveals patterns among cities with the highest **HBI** scores, incl
 
 ## Visualizations
 The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) allows users to explore **HBI** patterns across **Texas** cities. Cities are color-coded by burden level and enriched with tooltips showing prevalence values for all four conditions. The static images below display **all** cities classified as having either **high** or **low HBI** scores, enabling for quick side-by-side comparison. 
-![txhigh](images/txhighhbi.png)
+![txhigh](images/txhighbi.png)
 ![txlow](images/txlow.png)
 
 ## Recommendations
