@@ -14,7 +14,7 @@ The **Health Burden Index (HBI)** condenses city-level health risks into a singl
 * Highlight high-burden areas with map-based visualizations to support geographic comparisons
 
 ## Dataset Structure
-The final dataset was constructed by extracting city-level prevalence estimates (percent of residents age 18+) from the **[CDC PLACES Local 2024 dataset](data/dataset_link.md)** file. Health indicators were filtered to include **obesity**, **diabetes**, **smoking**, and **depression**, while **population counts** were joined from a secondary table using the shared **LocationId** field. 
+The final dataset was constructed by extracting city-level prevalence estimates (percent of residents age 18+) from the **[CDC PLACES Local 2024 dataset](data/dataset_link.md)** file. Health indicators were filtered to include **obesity**, **diabetes**, **smoking**, and **depression**, while **population counts** were joined from a secondary table using the shared **LocationID** field. 
 
 ![places](images/places.png)
 
@@ -22,7 +22,7 @@ The final dataset was constructed by extracting city-level prevalence estimates 
 The project followed these key steps:
 1. **Data Extraction**  
    * Retrieved 2024 CDC PLACES Local data via BigQuery.
-   * Selected relevant columns such as **MeasureId**, **Data_Value**, **LocationName**, **LocationId**, and **Geolocation**.
+   * Selected relevant columns such as **MeasureId**, **Data_Value**, **LocationName**, **LocationID**, and **Geolocation**.
      * **Data_Value** represents the percent of residents age 18+ with the condition.
    * Focused on four prevalent health indicators: **obesity**, **diabetes**, **smoking**, and **depression**, all based on the 2022 BRFSS data.  
 2. **Data Cleaning & Preparation**  
