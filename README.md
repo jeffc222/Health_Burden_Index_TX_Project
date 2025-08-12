@@ -2,7 +2,7 @@
 ## Overview
 This project analyzes chronic health burdens across Texas cities using the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md), which is based on the 2022 Behavioral Risk Factor Surveillance System (BRFSS) data. A custom **Health Burden Index (HBI)** was developed to represent the average prevalence of four key conditions: **obesity**, **diabetes**, **smoking**, and **depression**.
 
-**Units.** In [PLACES]((data/dataset_link.md)), each condition’s value is the **percent of residents age 18 or older** in a city with that condition. The **HBI** is the **average of those four percentages**, so it’s expressed in **percentage points**. For example, an **HBI of 30** means the four condition rates average **30 percentage points**.
+**Units.** In [PLACES](data/dataset_link.md), each condition’s value is the **percent of residents age 18 or older** in a city with that condition. The **HBI** is the **average of those four percentages**, so it’s expressed in **percentage points**. For example, an **HBI of 30** means the four condition rates average **30 percentage points**.
 
 The **Health Burden Index (HBI)** condenses city-level health risks into a single, interpretable score, enabling meaningful comparisons and clear geographic visualizations. This analysis focuses on identifying cities with the highest cumulative burden to inform data-driven public health planning across Texas. 
 
@@ -10,7 +10,7 @@ The **Health Burden Index (HBI)** condenses city-level health risks into a singl
 
 ## Objectives
 * Calculate a Health Burden Index for each city
-* Compare Texas cities with each other using **Health Burden Index (HBI)**
+* Compare Texas cities using **Health Burden Index (HBI)**
 * Provide insights and recommendations for public health planning
 * Highlight high-burden areas with map-based visualizations to support geographic comparisons
 
@@ -20,7 +20,7 @@ The final dataset was constructed by extracting city-level prevalence estimates 
 ![places](images/schema.png)
 
 ### Data source & version
-* **Source**: CDC PLACES – Local 2024 (BRFSS 2022, place level)
+* **Source**: CDC PLACES – Local 2024 (BRFSS 2022, place-level)
 * **Pulled on**: 2025-07-01
 * **Key fields** referenced: MeasureId, Data_Value, LocationID, LocationName, Geolocation
 * **Join key** used in this project: LocationID
@@ -55,8 +55,8 @@ The project followed these key steps:
 
 ### Data QA checks
 * **No nulls** and **equal weighting** in the four indicators used for HBI.
-* **Pivot step** yields exactly **one row per LocationID (no duplicates)**.
-* **Crude prevalence** (not age-adjusted) used for **city comparisons**. National “averages” are simple, unweighted means across places.
+* **Pivot step** yields exactly **one row per place (LocationID)**.
+* **Crude prevalence** (not age-adjusted) used for **city comparisons**.
 * **HBI bounds** are reasonable given inputs: min ≈ **7.75**, max ≈ **37.9**.
 * **All cities** (before TX filter):
     * Counts: High **587** (1.96%), Moderate **21,949** (73.35%), Low **7,387** (24.69%) → Total **29,923**
