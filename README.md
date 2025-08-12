@@ -97,7 +97,7 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 ## Key Findings
 The analysis reveals patterns among cities with the highest **HBI** scores, including elevated condition rates, geographic clustering in South Texas, and consistently low population counts. 
 
-* Nine cities in Texas were classified as having a **High HBI** (≥ 30), signaling significant challenges in **obesity**, **diabetes**, **smoking**, and **depression**.
+* **Nine cities** in Texas were classified as having a **High HBI** (≥ 30), signaling significant challenges in **obesity**, **diabetes**, **smoking**, and **depression**.
 * All high-burden cities **exceeded** national rates for **obesity**, **diabetes**, and **smoking**. Only **six out of the nine** exceeded the national benchmark for **depression**:
    * **Obesity**: National Avg = 36.37%, City Range = 48.5%–53.3%
    * **Diabetes**: National Avg = 13.03%, City Range = 20.5%–28.1%
