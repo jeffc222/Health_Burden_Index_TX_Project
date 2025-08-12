@@ -47,31 +47,33 @@ The project followed these key steps:
 * **HBI bounds** are reasonable given inputs: min ≈ **7.75**, max ≈ **37.9**.
 * **All cities** (before TX filter):
     * Counts: High **587** (1.96%), Moderate **21,949** (73.35%), Low **7,387** (24.69%) → Total **29,923**
-* Texas after filters (TotalPopulation > 500):
+* **Texas after filters (TotalPopulation > 500)**:
     * Counts: High **9** (0.72%), Moderate **1,068** (85.51%), Low **172** (13.77%) → Total **1,249**
 
 For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_place.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
 
-## How To Reproduce
+## How to Reproduce
 1. **Get the source data**
 Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them.
 
 2. **Run the SQL to build the city-level table**
-Open [sql_queries](work/sql_queries.sql) and run the queries in BigQuery.
+Open and run the [queries](work/sql_queries.sql) in BigQuery.
   * The script filters to YEAR = 2022, Data_Value_Type = 'Crude Prevalence', and these measures: OBESITY, DIABETES, CSMOKING, DEPRESSION.
   * It pivots to a wide table with one row per city/place and four columns for the indicators.
 
 3. **Compute the Health Burden Index (HBI)**
 Add an HBI column as the mean of the four prevalence rates (all values are percents for age 18+):
-``` ROUND((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index ```
-
+```sql
+ROUND ((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
+```
 4. **Export for Google Sheets / CSV**
 Export the resulting table to Google Sheets or CSV. If using Sheets, you can open the project [workbook](work/HBI_place.xlsx) to mirror the formatting and formulas.
 
 5. **Apply categories and filters in Sheets**
   * HBI Categories: High (HBI ≥ 30), Moderate (20–29.99), Low (HBI < 20).
   * Benchmarks: Use the national averages calculated in SQL to color cells above/below benchmarks.
-  * Texas focus: Filter to Texas and TotalPopulation > 500 (as described in [data_notes])work/data_cleaning_notes.md)).
+  * Texas focus: Filter to Texas and TotalPopulation > 500 (as described in [data cleaning notes](work/data_cleaning_notes.md)).
+
 
 6. **Build or view the dashboard**
 Connect the Sheet/CSV to Tableau Public and recreate the map with the same color logic and tooltips; or open the published dashboard (linked in the README).
