@@ -56,8 +56,7 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 
 ## How to Reproduce
 1. **Get the source data**
-
-  Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them.
+ Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them.
 
 2. **Run the SQL to build the city-level table**
 
