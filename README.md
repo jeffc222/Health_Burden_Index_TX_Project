@@ -123,6 +123,9 @@ The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1
 * **Reassess Annually:** Update **HBI** scores yearly using new CDC PLACES releases
 * **Track Outcomes:** Monitor progress in each city and refine strategies as needed
 
+## Limitations
+🛑 These are model-based estimates for adults (18+) from PLACES using BRFSS 2022; values are crude (not age-adjusted). See [Data Cleaning Notes](work/data_cleaning_notes.md) for details and caveats.
+
 ## Repository Contents
 * README.md – Project overview, objectives, technical process, insights, and recommendations.
 * data/ – Information about the dataset and external link to the full CDC PLACES dataset.
@@ -138,5 +141,8 @@ The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1
 
 ## Disclaimer
 This project is for educational and portfolio purposes only. The dataset used in this analysis is publicly available through the [**CDC PLACES: Local Data for Better Health 2024**](data/dataset_link.md). All data belongs to the original source.
+
+## Contact
+Questions or feedback? Please open an issue on this repo or email me (address on my resume).
 
 
