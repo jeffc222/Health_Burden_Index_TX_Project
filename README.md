@@ -25,6 +25,7 @@ The final dataset was constructed by extracting city-level prevalence estimates 
 * **Key fields** referenced: MeasureId, Data_Value, LocationID, LocationName, Geolocation
 * **Join key** used in this project: **LocationID**
 * **Table used**: places-564877.place.placelocal
+* **SQL dialect**: BigQuery Standard SQL
 
 ## Technical Process
 The project followed these key steps:
@@ -37,7 +38,7 @@ The project followed these key steps:
 2. **Data Cleaning & Preparation**  
    * Removed rows with missing values for selected indicators.
    * Used CTEs to pivot and reshape the data.
-   * Calculated a **Health Burden Index (HBI)** as the mean of crude prevalence rates (% age 18+) for **obesity, diabetes, smoking, and depression**.
+   * Calculated a **Health Burden Index (HBI)** as the mean of crude prevalence rates (% of age 18+) for **obesity, diabetes, smoking, and depression**.
        ```sql
        ROUND((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
        ```
@@ -81,7 +82,7 @@ The project followed these key steps:
 * The script filters to YEAR = 2022, Data_Value_Type = 'Crude prevalence', and these measures: OBESITY, DIABETES, CSMOKING, DEPRESSION.
 * It pivots to a wide table with one row per city/place and four columns for the indicators.
 
-3. **Compute the Health Burden Index (HBI)**: Add an HBI column as the mean of the four prevalence rates (all values are % for age 18+):
+3. **Compute the Health Burden Index (HBI)**: Add an HBI column as the mean of the four prevalence rates (all values are % of age 18+):
     ```sql
     ROUND((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
     ```
