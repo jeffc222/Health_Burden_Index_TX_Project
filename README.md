@@ -2,15 +2,15 @@
 ## Overview
 This project analyzes chronic health burdens across Texas cities using the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md), which is based on the 2022 Behavioral Risk Factor Surveillance System (BRFSS) data. A custom **Health Burden Index (HBI)** was developed to represent the average prevalence of four key conditions: **obesity**, **diabetes**, **smoking**, and **depression**.
 
-**Units.** In PLACES, each condition’s value is the **percent of residents age 18 or older** in a city with that condition. The **HBI** is the **average of those four percentages**, so it’s expressed in **percentage points**. For example, an HBI of 30 means the four condition rates average **30 percentage points**.
+**Units.** In [PLACES]((data/dataset_link.md)), each condition’s value is the **percent of residents age 18 or older** in a city with that condition. The **HBI** is the **average of those four percentages**, so it’s expressed in **percentage points**. For example, an HBI of 30 means the four condition rates average **30 percentage points**.
 
 The **Health Burden Index (HBI)** condenses city-level health risks into a single, interpretable score, enabling meaningful comparisons and clear geographic visualizations. This analysis focuses on identifying cities with the highest cumulative burden to inform data-driven public health planning across Texas. 
 
 :exclamation: Reproduce this analysis → see [How to Reproduce](#how-to-reproduce).
 
 ## Objectives
-* Calculate a Health Burden Index for each city in Texas
-* Compare cities across Texas using **Health Burden Index (HBI)**
+* Calculate a Health Burden Index for each city
+* Compare Texas cities with each other using **Health Burden Index (HBI)**
 * Provide insights and recommendations for public health planning
 * Highlight high-burden areas with map-based visualizations to support geographic comparisons
 
@@ -44,7 +44,7 @@ The project followed these key steps:
    * Emphasized cities labeled "High" based on threshold logic (≥ 30).
    * Tooltips include city name, **HBI**, and condition values to preserve analytic depth.
 
-### Data QA checks (quick sanity)
+### Data QA checks
 * **No nulls** in the four indicators used for HBI.
 * **Pivot step** yields exactly **one row per LocationID (no duplicates)**.
 * **HBI bounds** are reasonable given inputs: min ≈ **7.75**, max ≈ **37.9**.
@@ -76,7 +76,6 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 * Texas focus: Filter to Texas and TotalPopulation > 500 (as described in [data cleaning notes](work/data_cleaning_notes.md)).
 
 6. **Build or view the dashboard**: Connect the Sheet/CSV to Tableau Public and recreate the map with the same color logic and tooltips; or open the published dashboard (linked in the README).
-
 
 ## Key Findings
 The analysis reveals patterns among cities with the highest **HBI** scores, including elevated condition rates, geographic clustering in South Texas, and consistently low population counts. 
