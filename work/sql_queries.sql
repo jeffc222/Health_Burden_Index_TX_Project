@@ -23,7 +23,7 @@ WITH filtered_indicators AS (
     StateAbbr,
     StateDesc,
     LocationName,
-    LocationId,
+    LocationID,
     Geolocation,
     MAX(CASE WHEN MeasureId = 'OBESITY' THEN Value END) AS Obesity,
     MAX(CASE WHEN MeasureId = 'DIABETES' THEN Value END) AS Diabetes,
