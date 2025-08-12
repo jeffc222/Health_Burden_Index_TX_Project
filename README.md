@@ -6,7 +6,7 @@ This project analyzes chronic health burdens across Texas cities using the [**CD
 
 The **Health Burden Index (HBI)** condenses city-level health risks into a single, interpretable score, enabling meaningful comparisons and clear geographic visualizations. This analysis focuses on identifying cities with the highest cumulative burden to inform data-driven public health planning across Texas. 
 
-Reproduce this analysis → see [How to Reproduce](#how-to-reproduce)
+Reproduce this analysis → see [How to Reproduce](#how-to-reproduce).
 
 ## Objectives
 * Calculate a Health Burden Index for each city in Texas
@@ -96,8 +96,8 @@ The analysis reveals patterns among cities with the highest **HBI** scores, incl
 ## Visualizations
 The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) allows users to explore **HBI** patterns across **Texas** cities. Cities are color-coded by burden level and enriched with tooltips showing the city’s HBI and each condition’s rate (%) among residents age 18+. The static images below display **all** cities classified as having either **high** or **low HBI** scores, enabling quick side-by-side comparison.
 
-![txhigh](images/txhighbi.png)
-![txlow](images/txlowhbi.png)
+![txhighbi](images/txhighbi.png)
+![txlowhbi](images/txlowhbi.png)
 
 ## Recommendations
 * **Target Local Interventions**: Focus public health resources on rural South Texas communities where chronic condition rates consistently exceed national averages.
