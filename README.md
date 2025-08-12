@@ -77,6 +77,7 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 
 2. **Run the SQL to build the city-level table**: Open and run the [queries](work/sql_queries.sql) in BigQuery.
 * Update the table path 'places-564877.place.placelocal' to your own BigQuery project if needed.
+* Column names are case-sensitive (e.g., MeasureId, LocationID, Data_Value_Type = 'Crude prevalence').
 * The script filters to YEAR = 2022, Data_Value_Type = 'Crude prevalence', and these measures: OBESITY, DIABETES, CSMOKING, DEPRESSION.
 * It pivots to a wide table with one row per city/place and four columns for the indicators.
 
@@ -98,7 +99,7 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 The analysis reveals patterns among cities with the highest **HBI** scores, including elevated condition rates, geographic clustering in South Texas, and consistently low population counts. 
 
 * **Nine cities** in Texas were classified as having a **High HBI** (≥ 30), signaling significant challenges in **obesity**, **diabetes**, **smoking**, and **depression**.
-* All high-burden cities **exceeded** national rates for **obesity**, **diabetes**, and **smoking**. Only **six out of the nine** exceeded the national benchmark for **depression**:
+* All high-burden cities **exceeded** national rates for **obesity**, **diabetes**, and **smoking**. National averages are simple unweighted means across places and are not population weighted. Only **six out of the nine** exceeded the national benchmark for **depression**:
    * **Obesity**: National Avg = 36.37%, City Range = 48.5%–53.3%
    * **Diabetes**: National Avg = 13.03%, City Range = 20.5%–28.1%
    * **Smoking**: National Avg = 16.61%, City Range = 20.7%–26.1%
