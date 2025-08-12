@@ -63,9 +63,9 @@ Open and run the [queries](work/sql_queries.sql) in BigQuery.
 
 3. **Compute the Health Burden Index (HBI)**
 Add an HBI column as the mean of the four prevalence rates (all values are percents for age 18+):
-```sql
-ROUND ((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
-```
+  ```sql
+  ROUND ((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
+  ```
 4. **Export for Google Sheets / CSV**
 Export the resulting table to Google Sheets or CSV. If using Sheets, you can open the project [workbook](work/HBI_place.xlsx) to mirror the formatting and formulas.
 
