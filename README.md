@@ -91,9 +91,9 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 * HBI Categories: High (HBI ≥ 30), Moderate (20–29.99), Low (HBI < 20).
 * Benchmarks: Use the national averages calculated in SQL to color cells above/below benchmarks.
 * National averages are simple unweighted means across places and are not population weighted.
-* Texas focus: Filter to Texas and TotalPopulation > 500 (as described in [data cleaning notes](work/data_cleaning_notes.md).
+* Texas focus: Filter to Texas and TotalPopulation > 500 (as described in [data cleaning notes](work/data_cleaning_notes.md)).
 
-6. **Build or view the dashboard**: Connect the Sheet/CSV to Tableau Public and recreate the map with the same color logic and tooltips; or open the published dashboard (linked in the README).
+6. **Build or view the dashboard**: Connect the Sheet/CSV to Tableau Public and recreate the map with the same color logic and tooltips; or open the published [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link).
 
 ## Key Findings
 The analysis reveals patterns among cities with the highest **HBI** scores, including elevated condition rates, geographic clustering in South Texas, and consistently low population counts. 
