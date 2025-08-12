@@ -37,7 +37,7 @@ The project followed these key steps:
    * Filtered for only Texas cities with a population above 500.
 4. **Visualization in Tableau**  
    * Created a choropleth-style map to visualize **HBI** across cities.
-   * Emphasized cities labeled "High" based on threshold logic (>=30).
+   * Emphasized cities labeled "High" based on threshold logic (≥ 30).
    * Tooltips include city name, **HBI**, and condition values to preserve analytic depth.
    
 For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_place.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
@@ -56,7 +56,7 @@ The analysis reveals patterns among cities with the highest **HBI** scores, incl
 * Geographic and socioeconomic disparities were evident, as cities with the **lowest HBI** were primarily located in metropolitan areas such as **Austin, Dallas-Fort Worth, San Antonio,** and **Houston.**
 
 ## Visualizations
-The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) allows users to explore **HBI** patterns across **Texas** cities. Cities are color-coded by burden level and enriched with tooltips showing each condition's rate (%) among residents age 18+ along with the city's HBI for all four conditions. The static images below display **all** cities classified as having either **high** or **low HBI** scores, enabling for quick side-by-side comparison.
+The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) allows users to explore **HBI** patterns across **Texas** cities. Cities are color-coded by burden level and enriched with tooltips showing the city’s HBI and each condition’s rate (%) among residents age 18+. The static images below display **all** cities classified as having either **high** or **low HBI** scores, enabling for quick side-by-side comparison.
 
 ![txhigh](images/txhighbi.png)
 ![txlow](images/txlowhbi.png)
