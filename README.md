@@ -56,7 +56,6 @@ The project followed these key steps:
 ### Data QA checks
 * **No nulls** in the four indicators used for HBI.
 * **Pivot step** yields exactly **one row per place (LocationID)**.
-* **Crude prevalence** (not age-adjusted) used for **city comparisons**.
 * **HBI bounds** are reasonable given inputs: min ≈ **7.75**, max ≈ **37.9**.
 * **All cities** (before TX filter):
     * Counts: High **587** (1.96%), Moderate **21,949** (73.35%), Low **7,387** (24.69%) → Total **29,923**
@@ -64,8 +63,8 @@ The project followed these key steps:
     * Counts: High **9** (0.72%), Moderate **1,068** (85.51%), Low **172** (13.77%) → Total **1,249**
 
 ### Assumptions
-* **HBI definition**: Unweighted mean of the four crude prevalence rates (each rate is the percent of adults 18+ with the condition). No population weighting across indicators.
-* **Equal weighting**: HBI is a simple (unweighted) average of the four crude prevalence rates.
+* **HBI definition (equal weighting):** HBI is a simple unweighted mean of the four crude prevalence rates (% of adults 18+). No population weighting across indicators.
+* **Prevalence type**: **Crude (not age-adjusted) prevalence** is used for all comparisons and for the HBI calculation.
 * **Benchmarks**: National averages cited are simple unweighted means across places (not population-weighted).
 * **Geography**: “Place” includes incorporated municipalities (cities and towns) and census-designated places (CDPs). We use the latitude and longitude fields exactly as provided by PLACES, with no manual geocoding.
 * **Stability filter**: TotalPopulation > 500 is a pragmatic stability/readability cutoff. No additional uncertainty screening was applied.
@@ -82,7 +81,7 @@ The project followed these key steps:
 * The script filters to YEAR = 2022, Data_Value_Type = 'Crude prevalence', and these measures: OBESITY, DIABETES, CSMOKING, DEPRESSION.
 * It pivots to a wide table with one row per city/place and four columns for the indicators.
 
-3. **Compute the Health Burden Index (HBI)**: Add an HBI column as the mean of the four prevalence rates (all values are percents for age 18+):
+3. **Compute the Health Burden Index (HBI)**: Add an HBI column as the mean of the four prevalence rates (all values are % for age 18+):
     ```sql
     ROUND((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
     ```
@@ -90,7 +89,7 @@ The project followed these key steps:
 
 5. **Apply categories and filters in Sheets**
 * HBI Categories: High (HBI ≥ 30), Moderate (20–29.99), Low (HBI < 20).
-* Benchmarks: Use the national averages calculated in SQL to color cells above/below benchmarks.
+* Benchmarks: Use the national averages calculated in [SQL](work/sql_queries.sql) to color cells above/below benchmarks.
 * Texas focus: Filter to Texas and TotalPopulation > 500 (as described in [data cleaning notes](work/data_cleaning_notes.md)).
 
 6. **Build or view the dashboard**: Connect the Sheet/CSV to Tableau Public and recreate the map with the same color logic and tooltips; or open the published [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link).
