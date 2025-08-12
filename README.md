@@ -46,6 +46,7 @@ The project followed these key steps:
 
 ### Data QA checks (quick sanity)
 * **No nulls** in the four indicators used for HBI.
+* **Pivot step** yields exactly **one row per LocationID (no duplicates)**.
 * **HBI bounds** are reasonable given inputs: min ≈ **7.75**, max ≈ **37.9**.
 * **All cities** (before TX filter):
     * Counts: High **587** (1.96%), Moderate **21,949** (73.35%), Low **7,387** (24.69%) → Total **29,923**
@@ -58,6 +59,7 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 1. **Get the source data**: Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them.
 
 2. **Run the SQL to build the city-level table**: Open and run the [queries](work/sql_queries.sql) in BigQuery.
+* Update the table path 'places-564877.place.placelocal' to your own BigQuery project if needed.
 * The script filters to YEAR = 2022, Data_Value_Type = 'Crude prevalence', and these measures: OBESITY, DIABETES, CSMOKING, DEPRESSION.
 * It pivots to a wide table with one row per city/place and four columns for the indicators.
 
