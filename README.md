@@ -54,7 +54,7 @@ The project followed these key steps:
    * Tooltips include city name, **HBI**, and condition values to preserve analytic depth.
 
 ### Data QA checks
-* **No nulls** and **equal weighting** in the four indicators used for HBI.
+* **No nulls** in the four indicators used for HBI.
 * **Pivot step** yields exactly **one row per place (LocationID)**.
 * **Crude prevalence** (not age-adjusted) used for **city comparisons**.
 * **HBI bounds** are reasonable given inputs: min ≈ **7.75**, max ≈ **37.9**.
@@ -65,6 +65,7 @@ The project followed these key steps:
 
 ### Assumptions
 * **HBI definition**: Unweighted mean of the four crude prevalence rates (each rate is the percent of adults 18+ with the condition). No population weighting across indicators.
+* **Equal weighting**: HBI is a simple (unweighted) average of the four crude prevalence rates.
 * **Benchmarks**: National averages cited are simple unweighted means across places (not population-weighted).
 * **Geography**: “Place” includes incorporated municipalities (cities and towns) and census-designated places (CDPs). We use the latitude and longitude fields exactly as provided by PLACES, with no manual geocoding.
 * **Stability filter**: TotalPopulation > 500 is a pragmatic stability/readability cutoff. No additional uncertainty screening was applied.
@@ -73,7 +74,7 @@ The project followed these key steps:
 ⭐ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_place.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
 
 ## How to Reproduce
-1. **Get the source data**: Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them. This project uses the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md) dataset, pulled on 2025-07-01.
+1. **Get the source data**: Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them. This project uses the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md), pulled on 2025-07-01.
 
 2. **Run the SQL to build the city-level table**: Open and run the [queries](work/sql_queries.sql) in BigQuery.
 * Update the table path 'places-564877.place.placelocal' to your own BigQuery project if needed.
