@@ -2,7 +2,7 @@
 ## Overview
 This project analyzes chronic health burdens across Texas cities using the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md), which is based on the 2022 Behavioral Risk Factor Surveillance System (BRFSS) data. A custom **Health Burden Index (HBI)** was developed to represent the average prevalence of four key conditions: **obesity**, **diabetes**, **smoking**, and **depression**.
 
-**Units.** In PLACES, each condition’s value is the **percent of residents age 18 or older** in a city with that condition. The **HBI** is the **average of those four percents**, so it’s expressed in **percentage points**. For example, an HBI of 30 means the four condition rates average **30 percentage points.**
+**Units.** In PLACES, each condition’s value is the **percent of residents age 18 or older** in a city with that condition. The **HBI** is the **average of those four percentages**, so it’s expressed in **percentage points**. For example, an HBI of 30 means the four condition rates average **30 percentage points**.
 
 The **Health Burden Index (HBI)** condenses city-level health risks into a single, interpretable score, enabling meaningful comparisons and clear geographic visualizations. This analysis focuses on identifying cities with the highest cumulative burden to inform data-driven public health planning across Texas. 
 
@@ -29,7 +29,7 @@ The project followed these key steps:
    * Removed rows with missing values for selected indicators.
    * Used CTEs to pivot and reshape the data.
    * Calculated a **Health Burden Index (HBI)** as the mean of crude prevalence rates (%, age 18+) for **obesity, diabetes, smoking, and depression**.
-       * 'ROUND ((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index'
+       * ROUND ((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
    * Joined in total population estimates via VLOOKUP from a secondary table.
 3. **Google Sheets Processing**  
    * Applied conditional formatting to flag high, moderate, and low burden cities.
@@ -46,7 +46,7 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 ## Key Findings
 The analysis reveals patterns among cities with the highest **HBI** scores, including elevated condition rates, geographic clustering in South Texas, and consistently low population counts. 
 
-* Nine cities in Texas were classified as having a **High HBI** (>= 30), signaling significant challenges in **obesity**, **diabetes**, **smoking**, and **depression**.
+* Nine cities in Texas were classified as having a **High HBI** (≥ 30), signaling significant challenges in **obesity**, **diabetes**, **smoking**, and **depression**.
 * All high-burden cities **exceeded** national rates for **obesity**, **diabetes**, and **smoking**. Only **six out of the nine** exceeded the national benchmark for **depression**:
    * **Obesity**: National Avg = 36.37%, City Range = 48.5%–53.3%
    * **Diabetes**: National Avg = 13.03%, City Range = 20.5%–28.1%
@@ -56,7 +56,7 @@ The analysis reveals patterns among cities with the highest **HBI** scores, incl
 * Geographic and socioeconomic disparities were evident, as cities with the **lowest HBI** were primarily located in metropolitan areas such as **Austin, Dallas-Fort Worth, San Antonio,** and **Houston.**
 
 ## Visualizations
-The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) allows users to explore **HBI** patterns across **Texas** cities. Cities are color-coded by burden level and enriched with tooltips showing the city’s HBI and each condition’s rate (%) among residents age 18+. The static images below display **all** cities classified as having either **high** or **low HBI** scores, enabling for quick side-by-side comparison.
+The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) allows users to explore **HBI** patterns across **Texas** cities. Cities are color-coded by burden level and enriched with tooltips showing the city’s HBI and each condition’s rate (%) among residents age 18+. The static images below display **all** cities classified as having either **high** or **low HBI** scores, enabling quick side-by-side comparison.
 
 ![txhigh](images/txhighbi.png)
 ![txlow](images/txlowhbi.png)
