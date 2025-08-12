@@ -19,6 +19,13 @@ The final dataset was constructed by extracting city-level prevalence estimates 
 
 ![places](images/places.png)
 
+### Data source & version
+* Source: CDC PLACES – Local 2024 (BRFSS 2022, place level)
+* Table used: places-564877.place.placelocal
+* Pulled on: 2025-07-01
+* Key fields referenced: MeasureId, Data_Value, LocationID, LocationName, Geolocation
+* Join key used in this project: LocationID
+
 ## Technical Process
 The project followed these key steps:
 1. **Data Extraction**  
@@ -34,6 +41,7 @@ The project followed these key steps:
        ROUND((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
        ```
    * Joined in total population estimates via VLOOKUP from a secondary table.
+   * *Note*: Filters are exact string matches to the PLACES schema, e.g. Data_Value_Type = 'Crude prevalence' and MeasureId IN ('OBESITY','DIABETES','CSMOKING','DEPRESSION').
 3. **Google Sheets Processing**  
    * Applied conditional formatting to flag high, moderate, and low burden cities.
    * Computed national averages via BigQuery and colored cities above/below benchmarks.
@@ -52,6 +60,13 @@ The project followed these key steps:
     * Counts: High **587** (1.96%), Moderate **21,949** (73.35%), Low **7,387** (24.69%) → Total **29,923**
 * **Texas after filters (TotalPopulation > 500)**:
     * Counts: High **9** (0.72%), Moderate **1,068** (85.51%), Low **172** (13.77%) → Total **1,249**
+
+### Assumptions
+* **HBI definition**: Unweighted mean of the four crude prevalence rates (each rate is the percent of adults 18+ with the condition). No population weighting across indicators.
+* **Benchmarks**: National averages cited are simple unweighted means across places (not population-weighted).
+* **Geography**: “Place” includes incorporated municipalities (cities and towns) and census-designated places (CDPs). We use the latitude and longitude fields exactly as provided by PLACES, with no manual geocoding.
+* **Stability filter**: TotalPopulation > 500 is a pragmatic stability/readability cutoff. No additional uncertainty screening was applied.
+
 
 For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_place.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
 
