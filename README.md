@@ -6,7 +6,7 @@ This project analyzes chronic health burdens across Texas cities using the [**CD
 
 The **Health Burden Index (HBI)** condenses city-level health risks into a single, interpretable score, enabling meaningful comparisons and clear geographic visualizations. This analysis focuses on identifying cities with the highest cumulative burden to inform data-driven public health planning across Texas. 
 
-❗ Reproduce this analysis → see [How to Reproduce](#how-to-reproduce).
+**Reproduce this analysis** → see [How to Reproduce](#how-to-reproduce).
 
 ## Objectives
 * Calculate a Health Burden Index for each city
@@ -17,9 +17,9 @@ The **Health Burden Index (HBI)** condenses city-level health risks into a singl
 ## Dataset Structure
 The final dataset was constructed by extracting city-level prevalence estimates (percent of residents age 18+) from the **[CDC PLACES Local 2024 dataset](data/dataset_link.md)** file. Health indicators were filtered to include **obesity**, **diabetes**, **smoking**, and **depression**, while **population counts** were joined from a secondary table using the shared **LocationID** field. 
 
-![places](images/schemahbi.png)
+![schemahbi](images/schemahbi.png)
 
-### Data source & version
+### Data Source & Version
 * **Source**: CDC PLACES – Local 2024 (BRFSS 2022, place-level)
 * **Pulled on**: 2025-07-01
 * **Key fields** referenced: MeasureId, Data_Value, LocationID, LocationName, Geolocation
@@ -37,7 +37,7 @@ The project followed these key steps:
 2. **Data Cleaning & Preparation**  
    * Removed rows with missing values for selected indicators.
    * Used CTEs to pivot and reshape the data.
-   * Calculated a **Health Burden Index (HBI)** as the mean of crude prevalence rates (%; age 18+) for **obesity, diabetes, smoking, and depression**.
+   * Calculated a **Health Burden Index (HBI)** as the mean of crude prevalence rates (% age 18+) for **obesity, diabetes, smoking, and depression**.
        ```sql
        ROUND((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
        ```
@@ -73,7 +73,7 @@ The project followed these key steps:
 ⭐ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_place.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
 
 ## How to Reproduce
-1. **Get the source data**: Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them. This project uses the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md) data which was pulled on 2025-07-01.
+1. **Get the source data**: Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them. This project uses the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md) dataset, pulled on 2025-07-01.
 
 2. **Run the SQL to build the city-level table**: Open and run the [queries](work/sql_queries.sql) in BigQuery.
 * Update the table path 'places-564877.place.placelocal' to your own BigQuery project if needed.
@@ -90,7 +90,6 @@ The project followed these key steps:
 5. **Apply categories and filters in Sheets**
 * HBI Categories: High (HBI ≥ 30), Moderate (20–29.99), Low (HBI < 20).
 * Benchmarks: Use the national averages calculated in SQL to color cells above/below benchmarks.
-* National averages are simple unweighted means across places and are not population weighted.
 * Texas focus: Filter to Texas and TotalPopulation > 500 (as described in [data cleaning notes](work/data_cleaning_notes.md)).
 
 6. **Build or view the dashboard**: Connect the Sheet/CSV to Tableau Public and recreate the map with the same color logic and tooltips; or open the published [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link).
@@ -99,7 +98,7 @@ The project followed these key steps:
 The analysis reveals patterns among cities with the highest **HBI** scores, including elevated condition rates, geographic clustering in South Texas, and consistently low population counts. 
 
 * **Nine cities** in Texas were classified as having a **High HBI** (≥ 30), signaling significant challenges in **obesity**, **diabetes**, **smoking**, and **depression**.
-* All high-burden cities **exceeded** national rates for **obesity**, **diabetes**, and **smoking**. National averages are simple unweighted means across places and are not population weighted. Only **six out of the nine** exceeded the national benchmark for **depression**:
+* All high-burden cities **exceeded** national rates for **obesity**, **diabetes**, and **smoking**. Only **six out of the nine** exceeded the national benchmark for **depression**:
    * **Obesity**: National Avg = 36.37%, City Range = 48.5%–53.3%
    * **Diabetes**: National Avg = 13.03%, City Range = 20.5%–28.1%
    * **Smoking**: National Avg = 16.61%, City Range = 20.7%–26.1%
