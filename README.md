@@ -1,6 +1,6 @@
 # Health Burden Index for Texas Cities (2024 CDC PLACES Data)
 ## Overview
-This project analyzes chronic health burdens across Texas cities using the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md) , which is based on the 2022 Behavioral Risk Factor Surveillance System (BRFSS) data. A custom **Health Burden Index (HBI)** was developed to represent the average prevalence of four key conditions: **obesity**, **diabetes**, **smoking**, and **depression**.
+This project analyzes chronic health burdens across Texas cities using the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md), which is based on the 2022 Behavioral Risk Factor Surveillance System (BRFSS) data. A custom **Health Burden Index (HBI)** was developed to represent the average prevalence of four key conditions: **obesity**, **diabetes**, **smoking**, and **depression**.
 
 **Units.** In PLACES, each condition’s value is the **percent of residents age 18 or older** in a city with that condition. The **HBI** is the **average of those four percents**, so it’s expressed in **percentage points**. For example, an HBI of 30 means the four condition rates average **30 percentage points.**
 
@@ -77,12 +77,12 @@ The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1
   * dataset_link.md – Link to the original CDC PLACES dataset (2024 release).
 * work/ – Project work files, including SQL queries and spreadsheet.
   * sql_queries.sql – All SQL queries used for data filtering, cleaning, and analysis.
-  * HBI_places.xlsx – Cleaned and processed spreadsheet with final calculations.
+  * HBI_place.xlsx – Cleaned and processed spreadsheet with final calculations.
   * data_cleaning_notes.md – Step-by-step explanation of data cleaning and transformation steps.
 * images/ – Static images and dataset schema visual references
   * places.png - Table schema and dataset structure diagram.
-  * txhigh.png - Tableau map visualization of high-burden Texas cities.
-  * txlow.png - Tableau map visualization of low-burden Texas cities.
+  * txhighbi.png - Tableau map visualization of high-burden Texas cities.
+  * txlowhbi.png - Tableau map visualization of low-burden Texas cities.
 
 ## Disclaimer
 This project is for educational and portfolio purposes only. The dataset used in this analysis is publicly available through the [**CDC PLACES: Local Data for Better Health 2024**](data/dataset_link.md). All data belongs to the original source.
