@@ -36,7 +36,7 @@ WITH filtered_indicators AS (
 )
 SELECT 
   *,
-  ROUND ((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
+  ROUND((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
 FROM
   pivoted_data
 ORDER BY
