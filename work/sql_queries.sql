@@ -65,7 +65,7 @@ SELECT
 
 WITH deduped AS(
   SELECT *,
-    ROW_NUMBER() OVER (PARTITION BY LocationID ORDER BY MeasureID) AS rn
+    ROW_NUMBER() OVER (PARTITION BY LocationID ORDER BY MeasureId) AS rn
   FROM places-564877.place.placelocal
   WHERE Year = 2022
 ) 
@@ -77,7 +77,7 @@ WITH deduped AS(
     LocationID,
     TotalPopulation,
     TotalPop18plus,
-    Geolocation,
+    Geolocation
   FROM
     deduped
   WHERE
