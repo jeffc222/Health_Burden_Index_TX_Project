@@ -20,11 +20,11 @@ The final dataset was constructed by extracting city-level prevalence estimates 
 ![places](images/schema.png)
 
 ### Data source & version
-* Source: CDC PLACES – Local 2024 (BRFSS 2022, place level)
-* Table used: places-564877.place.placelocal
-* Pulled on: 2025-07-01
-* Key fields referenced: MeasureId, Data_Value, LocationID, LocationName, Geolocation
-* Join key used in this project: LocationID
+* **Source**: CDC PLACES – Local 2024 (BRFSS 2022, place level)
+* **Pulled on**: 2025-07-01
+* **Key fields** referenced: MeasureId, Data_Value, LocationID, LocationName, Geolocation
+* **Join key** used in this project: LocationID
+* **Table used**: places-564877.place.placelocal
 
 ## Technical Process
 The project followed these key steps:
