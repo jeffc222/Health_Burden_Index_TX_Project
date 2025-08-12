@@ -8,6 +8,8 @@ The **Health Burden Index (HBI)** condenses city-level health risks into a singl
 
 **Reproduce this analysis** → see [How to Reproduce](#how-to-reproduce).
 
+**Tech stack:** BigQuery (SQL) · Google Sheets · Tableau Public
+
 ## Objectives
 * Calculate a Health Burden Index for each city
 * Compare Texas cities using **Health Burden Index (HBI)**
