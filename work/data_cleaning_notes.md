@@ -128,7 +128,7 @@ Labeling **only High HBI** cities was a deliberate design choice to prevent visu
 ## Limitations and Design Considerations
 * The **CDC PLACES dataset is model-based,** meaning prevalence estimates are not directly observed but derived from statistical modeling. Estimates may not capture hyperlocal variation or effects from recent interventions. PLACES estimates describe adults age 18+ and do not include children. 
 * The HBI is a **custom metric,** not a CDC-provided field. While it aggregates four validated indicators, it is not an official index and should be interpreted accordingly.
-* Cities with **population < 500** were excluded to avoid statistical noise in small-area estimates and improve clarity in the visualization.
+* Cities with **population ≤ 500** were excluded to avoid statistical noise in small-area estimates and improve clarity in the visualization.
 * The project used **2022 BRFSS-based model estimates** from the [2024 PLACES Local release](../data/dataset_link.md). Measures such as high blood pressure were excluded as they were based on 2021 BRFSS data in this release cycle.
 * Geolocation fields were used as-is from the dataset, **no manual geocoding or correction was applied.**
 * **Google Sheets** was used for lightweight analysis. For more advanced statistical modeling or time-series comparisons, a tool like Python or R would be more suitable.
