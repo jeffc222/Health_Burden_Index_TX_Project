@@ -6,7 +6,7 @@ This project analyzes chronic health burdens across Texas cities using the [**CD
 
 The **Health Burden Index (HBI)** condenses city-level health risks into a single, interpretable score, enabling meaningful comparisons and clear geographic visualizations. This analysis focuses on identifying cities with the highest cumulative burden to inform data-driven public health planning across Texas. 
 
-Reproduce this analysis → see [How to Reproduce](#how-to-reproduce).
+:exclamation: Reproduce this analysis → see [How to Reproduce](#how-to-reproduce).
 
 ## Objectives
 * Calculate a Health Burden Index for each city in Texas
