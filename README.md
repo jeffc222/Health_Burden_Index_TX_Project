@@ -17,7 +17,7 @@ The **Health Burden Index (HBI)** condenses city-level health risks into a singl
 ## Dataset Structure
 The final dataset was constructed by extracting city-level prevalence estimates (percent of residents age 18+) from the **[CDC PLACES Local 2024 dataset](data/dataset_link.md)** file. Health indicators were filtered to include **obesity**, **diabetes**, **smoking**, and **depression**, while **population counts** were joined from a secondary table using the shared **LocationID** field. 
 
-![places](images/schema.png)
+![places](images/schemahbi.png)
 
 ### Data source & version
 * **Source**: CDC PLACES – Local 2024 (BRFSS 2022, place-level)
@@ -137,7 +137,7 @@ This project is for educational and portfolio purposes only. The dataset used in
   * HBI_place.xlsx – Cleaned and processed spreadsheet with final calculations.
   * data_cleaning_notes.md – Step-by-step explanation of data cleaning and transformation steps.
 * images/ – Static images and dataset schema visual references
-  * schema.png - Table schema and dataset structure diagram.
+  * schemahbi.png - Table schema and dataset structure diagram.
   * txhighbi.png - Tableau map visualization of high-burden Texas cities.
   * txlowhbi.png - Tableau map visualization of low-burden Texas cities.
 
