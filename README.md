@@ -23,7 +23,7 @@ The final dataset was constructed by extracting city-level prevalence estimates 
 * **Source**: CDC PLACES – Local 2024 (BRFSS 2022, place-level)
 * **Pulled on**: 2025-07-01
 * **Key fields** referenced: MeasureId, Data_Value, LocationID, LocationName, Geolocation
-* **Join key** used in this project: LocationID
+* **Join key** used in this project: **LocationID**
 * **Table used**: places-564877.place.placelocal
 
 ## Technical Process
@@ -33,7 +33,7 @@ The project followed these key steps:
    * Selected relevant columns such as **MeasureId**, **Data_Value**, **LocationName**, **LocationID**, and **Geolocation**.
      * **Data_Value** represents the percent of residents age 18+ with the condition.
    * Focused on four prevalent health indicators: **obesity**, **diabetes**, **smoking**, and **depression**, all based on the 2022 BRFSS data.
-   * Column names are case-sensitive in BigQuery. The schema uses MeasureId and LocationID.  
+   * Column names are **case-sensitive** in BigQuery. The schema uses **MeasureId** and **LocationID**.  
 2. **Data Cleaning & Preparation**  
    * Removed rows with missing values for selected indicators.
    * Used CTEs to pivot and reshape the data.
