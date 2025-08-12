@@ -28,7 +28,7 @@ The project followed these key steps:
 2. **Data Cleaning & Preparation**  
    * Removed rows with missing values for selected indicators.
    * Used CTEs to pivot and reshape the data.
-   * Calculated a **Health Burden Index (HBI)** as the mean of crude prevalence rates (%, age 18+) for **obesity, diabetes, smoking, and depression**.
+   * Calculated a **Health Burden Index (HBI)** as the mean of crude prevalence rates (%; age 18+) for **obesity, diabetes, smoking, and depression**.
        ```sql
        ROUND((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
        ```
