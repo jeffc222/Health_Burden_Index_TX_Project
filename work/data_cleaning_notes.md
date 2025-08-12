@@ -16,7 +16,7 @@ The goal of this analysis was to **identify Texas cities** with notably **high c
 **Process:** The full [CDC PLACES Local 2024 dataset](../data/dataset_link.md), containing over **2.2 million rows** across all U.S. geographies, was imported into **Google BigQuery** to support scalable querying. Using SQL, the dataset was filtered to include only:
 * **YEAR** = 2022
 * **Data_Value_Type** = 'Crude prevalence'
-* **Measure_Id** (Health Indicators) = 'OBESITY', 'DIABETES', 'CSMOKING', 'DEPRESSION'
+* **MeasureId** (Health Indicators) = 'OBESITY', 'DIABETES', 'CSMOKING', 'DEPRESSION'
 * **Non-null values** for the selected indicators
 
 The filtered records were then reshaped using a **pivot transformation** (MAX(CASE WHEN ...)) so that each row represented a unique city/place, with four separate columns for the health indicators. A new column was created to calculate the **Health Burden Index (HBI)** by averaging the four prevalence values.
