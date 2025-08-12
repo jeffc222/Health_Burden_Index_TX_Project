@@ -6,6 +6,7 @@ This project analyzes chronic health burdens across Texas cities using the [**CD
 
 The **Health Burden Index (HBI)** condenses city-level health risks into a single, interpretable score, enabling meaningful comparisons and clear geographic visualizations. This analysis focuses on identifying cities with the highest cumulative burden to inform data-driven public health planning across Texas. 
 
+Reproduce this analysis → see [How to Reproduce](## How to Reproduce)
 
 ## Objectives
 * Calculate a Health Burden Index for each city in Texas
@@ -54,20 +55,20 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 
 ## How to Reproduce
 1. **Get the source data**
-Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them.
+  Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them.
 
 2. **Run the SQL to build the city-level table**
-Open and run the [queries](work/sql_queries.sql) in BigQuery.
+  Open and run the [queries](work/sql_queries.sql) in BigQuery.
   * The script filters to YEAR = 2022, Data_Value_Type = 'Crude Prevalence', and these measures: OBESITY, DIABETES, CSMOKING, DEPRESSION.
   * It pivots to a wide table with one row per city/place and four columns for the indicators.
 
 3. **Compute the Health Burden Index (HBI)**
-Add an HBI column as the mean of the four prevalence rates (all values are percents for age 18+):
+  Add an HBI column as the mean of the four prevalence rates (all values are percents for age 18+):
     ```sql
     ROUND((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
     ```
 4. **Export for Google Sheets / CSV**
-Export the resulting table to Google Sheets or CSV. If using Sheets, you can open the project [workbook](work/HBI_place.xlsx) to mirror the formatting and formulas.
+  Export the resulting table to Google Sheets or CSV. If using Sheets, you can open the project [workbook](work/HBI_place.xlsx) to mirror the formatting and formulas.
 
 5. **Apply categories and filters in Sheets**
   * HBI Categories: High (HBI ≥ 30), Moderate (20–29.99), Low (HBI < 20).
@@ -76,7 +77,7 @@ Export the resulting table to Google Sheets or CSV. If using Sheets, you can ope
 
 
 6. **Build or view the dashboard**
-Connect the Sheet/CSV to Tableau Public and recreate the map with the same color logic and tooltips; or open the published dashboard (linked in the README).
+  Connect the Sheet/CSV to Tableau Public and recreate the map with the same color logic and tooltips; or open the published dashboard (linked in the README).
 
 
 ## Key Findings
