@@ -139,10 +139,9 @@ The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1
   * txhighbi.png - Tableau map visualization of high-burden Texas cities.
   * txlowhbi.png - Tableau map visualization of low-burden Texas cities.
 
-## Disclaimer
+## Disclaimer and Contact
 This project is for educational and portfolio purposes only. The dataset used in this analysis is publicly available through the [**CDC PLACES: Local Data for Better Health 2024**](data/dataset_link.md). All data belongs to the original source.
 
-## Contact
 Questions or feedback? Please open an issue on this repo or email me (address on my resume).
 
 
