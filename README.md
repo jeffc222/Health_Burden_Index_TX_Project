@@ -129,7 +129,7 @@ The final [dashboard](https://public.tableau.com/views/hbiplacestxover500/Sheet1
   * HBI_place.xlsx – Cleaned and processed spreadsheet with final calculations.
   * data_cleaning_notes.md – Step-by-step explanation of data cleaning and transformation steps.
 * images/ – Static images and dataset schema visual references
-  * places.png - Table schema and dataset structure diagram.
+  * hbischema.png - Table schema and dataset structure diagram.
   * txhighbi.png - Tableau map visualization of high-burden Texas cities.
   * txlowhbi.png - Tableau map visualization of low-burden Texas cities.
 
