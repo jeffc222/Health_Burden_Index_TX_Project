@@ -59,7 +59,7 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 
 2. **Run the SQL to build the city-level table**
   Open and run the [queries](work/sql_queries.sql) in BigQuery.
-  * The script filters to YEAR = 2022, Data_Value_Type = 'Crude Prevalence', and these measures: OBESITY, DIABETES, CSMOKING, DEPRESSION.
+  * The script filters to YEAR = 2022, Data_Value_Type = 'Crude prevalence', and these measures: OBESITY, DIABETES, CSMOKING, DEPRESSION.
   * It pivots to a wide table with one row per city/place and four columns for the indicators.
 
 3. **Compute the Health Burden Index (HBI)**
