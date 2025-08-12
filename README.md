@@ -6,7 +6,7 @@ This project analyzes chronic health burdens across Texas cities using the [**CD
 
 The **Health Burden Index (HBI)** condenses city-level health risks into a single, interpretable score, enabling meaningful comparisons and clear geographic visualizations. This analysis focuses on identifying cities with the highest cumulative burden to inform data-driven public health planning across Texas. 
 
-:exclamation: Reproduce this analysis → see [How to Reproduce](#how-to-reproduce).
+❗ Reproduce this analysis → see [How to Reproduce](#how-to-reproduce).
 
 ## Objectives
 * Calculate a Health Burden Index for each city
@@ -70,7 +70,7 @@ The project followed these key steps:
 * **Stability filter**: TotalPopulation > 500 is a pragmatic stability/readability cutoff. No additional uncertainty screening was applied.
 
 
-For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_place.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
+⭐For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_place.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
 
 ## How to Reproduce
 1. **Get the source data**: Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them. This project uses the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md) data which was pulled on 2025-07-01.
