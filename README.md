@@ -32,7 +32,8 @@ The project followed these key steps:
    * Retrieved 2024 CDC PLACES Local data via BigQuery.
    * Selected relevant columns such as **MeasureId**, **Data_Value**, **LocationName**, **LocationID**, and **Geolocation**.
      * **Data_Value** represents the percent of residents age 18+ with the condition.
-   * Focused on four prevalent health indicators: **obesity**, **diabetes**, **smoking**, and **depression**, all based on the 2022 BRFSS data.  
+   * Focused on four prevalent health indicators: **obesity**, **diabetes**, **smoking**, and **depression**, all based on the 2022 BRFSS data.
+   * Column names are case-sensitive in BigQuery. The schema uses MeasureId and LocationID.  
 2. **Data Cleaning & Preparation**  
    * Removed rows with missing values for selected indicators.
    * Used CTEs to pivot and reshape the data.
@@ -53,8 +54,9 @@ The project followed these key steps:
    * Tooltips include city name, **HBI**, and condition values to preserve analytic depth.
 
 ### Data QA checks
-* **No nulls** in the four indicators used for HBI.
+* **No nulls** and **equal weighting** in the four indicators used for HBI.
 * **Pivot step** yields exactly **one row per LocationID (no duplicates)**.
+* **Crude prevalence** (not age-adjusted) used for **city comparisons**. National “averages” are simple, unweighted means across places.
 * **HBI bounds** are reasonable given inputs: min ≈ **7.75**, max ≈ **37.9**.
 * **All cities** (before TX filter):
     * Counts: High **587** (1.96%), Moderate **21,949** (73.35%), Low **7,387** (24.69%) → Total **29,923**
@@ -71,7 +73,7 @@ The project followed these key steps:
 For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_place.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
 
 ## How to Reproduce
-1. **Get the source data**: Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them.
+1. **Get the source data**: Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them. This project uses the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md) data which was pulled on 2025-07-01.
 
 2. **Run the SQL to build the city-level table**: Open and run the [queries](work/sql_queries.sql) in BigQuery.
 * Update the table path 'places-564877.place.placelocal' to your own BigQuery project if needed.
@@ -88,7 +90,7 @@ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [p
 * HBI Categories: High (HBI ≥ 30), Moderate (20–29.99), Low (HBI < 20).
 * Benchmarks: Use the national averages calculated in SQL to color cells above/below benchmarks.
 * National averages are simple unweighted means across places and are not population weighted.
-* Texas focus: Filter to Texas and TotalPopulation > 500 (as described in [data cleaning notes](work/data_cleaning_notes.md)).
+* Texas focus: Filter to Texas and TotalPopulation > 500 (as described in [data cleaning notes](work/data_cleaning_notes.md).
 
 6. **Build or view the dashboard**: Connect the Sheet/CSV to Tableau Public and recreate the map with the same color logic and tooltips; or open the published dashboard (linked in the README).
 
