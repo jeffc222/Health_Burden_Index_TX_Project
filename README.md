@@ -76,7 +76,7 @@ The project followed these key steps:
 ⭐ For detailed logic, see the [SQL queries](work/sql_queries.sql) and the final [processed spreadsheet](work/HBI_place.xlsx). A full breakdown of each step is included in the [data cleaning notes](work/data_cleaning_notes.md).
 
 ## How to Reproduce
-1. **Get the source data**: Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them. This project uses the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md), pulled on 2025-07-01.
+1. **Get the source data**: Download the PLACES Local 2024 release (BRFSS 2022) using the [link](data/dataset_link.md). Save the file(s) where your SQL environment can read them, highly recommend BigQuery. This project uses the [**CDC PLACES Local 2024 dataset**](data/dataset_link.md), pulled on 2025-07-01.
 
 2. **Run the SQL to build the city-level table**: Open and run the [queries](work/sql_queries.sql) in BigQuery.
 * Update the table path 'places-564877.place.placelocal' to your own BigQuery project if needed.
@@ -88,9 +88,9 @@ The project followed these key steps:
     ```sql
     ROUND((Obesity + Diabetes + Smoking + Depression) / 4, 2) AS Health_Burden_Index
     ```
-4. **Export for Google Sheets / CSV**: Export the resulting table to Google Sheets or CSV. If using Sheets, you can open the project [workbook](work/HBI_place.xlsx) to mirror the formatting and formulas.
+4. **Export for Google Sheets / Excel**: Export the resulting table to Google Sheets or Excel. Open the project [workbook](work/HBI_place.xlsx) to mirror the formatting and formulas.
 
-5. **Apply categories and filters in Sheets**
+5. **Apply categories and filters in Spreadsheet**
 * HBI Categories: High (HBI ≥ 30), Moderate (20–29.99), Low (HBI < 20).
 * Benchmarks: Use the national averages calculated in [SQL](work/sql_queries.sql) to color cells above/below benchmarks.
 * Texas focus: Filter to Texas and TotalPopulation > 500 (as described in [data cleaning notes](work/data_cleaning_notes.md)).
